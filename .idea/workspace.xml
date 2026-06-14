@@ -18,165 +18,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="33" />
-    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Fa03&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Fa03/ProyectoB_SPAC.git",
-    "accountId": "960b1b59-51f6-4b5c-b849-43e9bb452c36"
-  }
-}]]></component>
-  <component name="McpProjectServerCommands">
-    <commands />
-    <urls />
-  </component>
-  <component name="NextEditCompletionFeaturesState">
-    <decayedCancelled>
-      <entry key="MS100" value="1.0000000000110283" />
-      <entry key="MS500" value="1.006434304822403" />
-      <entry key="S2" value="1.2832209713239497" />
-      <entry key="S5" value="1.6037402957432483" />
-      <entry key="S10" value="1.7770072687840495" />
-      <entry key="S30" value="1.9193376095202872" />
-      <entry key="S60" value="1.9588209480314316" />
-      <entry key="M2" value="1.979215619296367" />
-      <entry key="M5" value="2.0219532704733636" />
-      <entry key="M10" value="2.749214864573217" />
-      <entry key="M15" value="4.448198082993391" />
-      <entry key="M30" value="11.397418213391129" />
-      <entry key="H1" value="24.195545734280216" />
-      <entry key="H2" value="39.07530632557465" />
-      <entry key="H4" value="51.07401470300273" />
-      <entry key="D1" value="64.75120641718519" />
-      <entry key="W1" value="67.52406173668261" />
-    </decayedCancelled>
-    <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="0.0" />
-      <entry key="S30" value="0.0" />
-      <entry key="S60" value="0.0" />
-      <entry key="M2" value="0.0" />
-      <entry key="M5" value="0.0" />
-      <entry key="M10" value="0.0" />
-      <entry key="M15" value="0.0" />
-      <entry key="M30" value="0.0" />
-      <entry key="H1" value="0.0" />
-      <entry key="H2" value="0.0" />
-      <entry key="H4" value="0.0" />
-      <entry key="D1" value="0.0" />
-      <entry key="W1" value="0.0" />
-    </decayedSelected>
-    <decayedShown>
-      <entry key="MS100" value="0.9012504626207695" />
-      <entry key="MS500" value="0.9857221863308497" />
-      <entry key="S2" value="1.2765673236606583" />
-      <entry key="S5" value="1.600408876496444" />
-      <entry key="S10" value="1.7751606375735276" />
-      <entry key="S30" value="1.9186725330496235" />
-      <entry key="S60" value="1.9584815396283644" />
-      <entry key="M2" value="1.9790439733845575" />
-      <entry key="M5" value="2.0218404209040357" />
-      <entry key="M10" value="2.748981423500893" />
-      <entry key="M15" value="4.447890173376456" />
-      <entry key="M30" value="11.397080900646277" />
-      <entry key="H1" value="24.195266543705923" />
-      <entry key="H2" value="39.07511180609189" />
-      <entry key="H4" value="51.07389605791124" />
-      <entry key="D1" value="64.75118259288304" />
-      <entry key="W1" value="67.5240582155255" />
-    </decayedShown>
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4,
-  &quot;fromUser&quot;: false
-}</component>
-  <component name="ProjectId" id="3F6t1jcqi38CAYf4pkEbzkJOqY6" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.clasificacion_binaria.executor": "Run",
-    "Python.download_data.executor": "Run",
-    "Python.procesador_eda.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "DetalladoClassBi",
-    "git.auto.fetch.suggestion.counter": "1",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/fab_t/Documents/Codigo/IA_Aplicada/ProyectoB_SPAC",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.24374.152" />
-        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="" />
-      <created>1781407134312</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1781407134312</updated>
-      <workItem from="1781407135519" duration="147000" />
-      <workItem from="1781408758934" duration="87000" />
-      <workItem from="1781408880742" duration="22000" />
-      <workItem from="1781408945267" duration="1944000" />
-      <workItem from="1781469492783" duration="10146000" />
+
     </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781476580045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
+    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781475535640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/git_Clones$prediccion_nuevosDatos.coverage" NAME="prediccion_nuevosDatos Coverage Results" MODIFIED="1781461682573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />

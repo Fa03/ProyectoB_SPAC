@@ -8,8 +8,13 @@ import os
 import json
 import subprocess
 import sys
+from typing import Any
+
 import pandas as pd
 from pathlib import Path
+
+from pandas import DataFrame
+from pandas.io.parsers import TextFileReader
 
 # --------------------------------------------------------------
 #  CONFIGURACION
@@ -119,12 +124,14 @@ class KaggleDatasetImporter:
         print(f"Descarga completada en: {self.download_dir}/")
         return self.download_dir
 
-    def load(self, dataset_ref: str, file_name: str = None, **read_kwargs) -> pd.DataFrame:
+    def load(self, dataset_ref: str, file_name: str = None, **read_kwargs) -> TextFileReader | DataFrame | dict[
+        Any, DataFrame] | dict[str, DataFrame] | dict[int | str, DataFrame]:
         """Descarga el dataset (si no existe) y lo carga como DataFrame."""
         data_path = self.download(dataset_ref)
         return self._read_files(data_path, file_name, **read_kwargs)
 
-    def _read_files(self, data_path: Path, file_name: str = None, **kwargs) -> pd.DataFrame:
+    def _read_files(self, data_path: Path, file_name: str = None, **kwargs) -> TextFileReader | DataFrame | dict[
+        Any, DataFrame] | dict[str, DataFrame] | dict[int | str, DataFrame]:
         if file_name:
             target = data_path / file_name
             if not target.exists():
@@ -142,7 +149,8 @@ class KaggleDatasetImporter:
         return self._read_single(candidates[0], **kwargs)
 
     @staticmethod
-    def _read_single(file_path: Path, **kwargs) -> pd.DataFrame:
+    def _read_single(file_path: Path, **kwargs) -> TextFileReader | DataFrame | dict[Any, DataFrame] | dict[
+        str, DataFrame] | dict[int | str, DataFrame]:
         ext = file_path.suffix.lower()
         print(f"Cargando: {file_path.name}")
         if ext == ".csv":
@@ -180,7 +188,7 @@ def main():
     print("\nEl procesamiento se completó correctamente en memoria.")
 
     print("\n" + "=" * 60)
-    print("PROCESO COMPLETADO")
+    print("Proceso completado")
     print("=" * 60)
 
 
