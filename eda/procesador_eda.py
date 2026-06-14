@@ -440,6 +440,8 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         print("=" * 60)
         print("Descripcion del nuevo dataset")
         print(self.__DF_reducido.info())
+        print("hola mundo")
+
 
 
 # =============================================================================
