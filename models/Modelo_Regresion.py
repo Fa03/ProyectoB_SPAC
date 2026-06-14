@@ -25,7 +25,7 @@ class ModeloRegresion:
 # 1. Entrenamiento y prueba.
     def entrena_prueba(self, df):
         X = drop('Churn', axis=1) # Le indicamos que usa todas las variables de entrada menos la variable objetivo
-        y = self.df['Churn_Yes'] # Le indicamos que solo usa la variable objetivo
+        y = df['Churn'] # Le indicamos que solo usa la variable objetivo
 
     # Aqui dividimos los datos para poder hacer el entrenamiento y prueba
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=101)
