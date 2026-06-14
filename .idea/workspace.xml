@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eda/procesador_eda.py" beforeDir="false" afterPath="$PROJECT_DIR$/eda/procesador_eda.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="INCOMING_COMMITS_CHECK_STRATEGY" value="FETCH" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="eda" />
@@ -28,61 +29,61 @@
 }]]></component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0110864197670912" />
-      <entry key="MS500" value="1.6409020057548662" />
-      <entry key="S2" value="3.9726464146067393" />
-      <entry key="S5" value="8.339667791335788" />
-      <entry key="S10" value="13.704090011796408" />
-      <entry key="S30" value="21.487671367183815" />
-      <entry key="S60" value="24.644009293263114" />
-      <entry key="M2" value="27.64726768470984" />
-      <entry key="M5" value="32.884510500202325" />
-      <entry key="M10" value="36.981115823740154" />
-      <entry key="M15" value="39.01333847036308" />
-      <entry key="M30" value="41.60258035627978" />
-      <entry key="H1" value="43.17949894444508" />
-      <entry key="H2" value="44.05611837509869" />
-      <entry key="H4" value="44.51920888465939" />
-      <entry key="D1" value="44.91859907399139" />
-      <entry key="W1" value="44.988339680742094" />
+      <entry key="MS100" value="1.0000151533889075" />
+      <entry key="MS500" value="1.1086808124416638" />
+      <entry key="S2" value="1.633896740081096" />
+      <entry key="S5" value="2.1249440747797124" />
+      <entry key="S10" value="2.4641600492050046" />
+      <entry key="S30" value="2.7924297567780116" />
+      <entry key="S60" value="2.8920389294014583" />
+      <entry key="M2" value="2.96265482754445" />
+      <entry key="M5" value="4.714953883302201" />
+      <entry key="M10" value="11.488749050362255" />
+      <entry key="M15" value="17.63127114957268" />
+      <entry key="M30" value="28.48014290473108" />
+      <entry key="H1" value="36.79295897948887" />
+      <entry key="H2" value="41.974642256146" />
+      <entry key="H4" value="44.873161496650525" />
+      <entry key="D1" value="47.46220216036196" />
+      <entry key="W1" value="47.92275285323834" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="2.2599739652177604E-107" />
-      <entry key="S5" value="2.1961386088088176E-43" />
-      <entry key="S10" value="4.716678810904878E-22" />
-      <entry key="S30" value="9.217267008058153E-8" />
-      <entry key="S60" value="3.991118689095626E-4" />
-      <entry key="M2" value="0.027667546491634082" />
-      <entry key="M5" value="0.3590361586654731" />
-      <entry key="M10" value="0.8466473288797439" />
-      <entry key="M15" value="1.127353497539309" />
-      <entry key="M30" value="1.5014213400660519" />
-      <entry key="H1" value="1.7328288510999905" />
-      <entry key="H2" value="1.861616321352947" />
-      <entry key="H4" value="1.92956504467398" />
-      <entry key="D1" value="1.988084356538256" />
-      <entry key="W1" value="1.9982933923276758" />
+      <entry key="S2" value="6.094468342739922E-299" />
+      <entry key="S5" value="5.175981349563631E-120" />
+      <entry key="S10" value="2.2898275760503362E-60" />
+      <entry key="S30" value="1.5607175993881363E-20" />
+      <entry key="S60" value="1.6423122140973217E-10" />
+      <entry key="M2" value="1.7748072258729646E-5" />
+      <entry key="M5" value="0.01896751362345862" />
+      <entry key="M10" value="0.19459812459059855" />
+      <entry key="M15" value="0.4230102151818456" />
+      <entry key="M30" value="0.9197037422659899" />
+      <entry key="H1" value="1.356214411138183" />
+      <entry key="H2" value="1.6469352317753938" />
+      <entry key="H4" value="1.8148995550540652" />
+      <entry key="D1" value="1.967887814725632" />
+      <entry key="W1" value="1.9953806500675053" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9632008554998323" />
-      <entry key="MS500" value="1.6254671218984202" />
-      <entry key="S2" value="3.963446068264595" />
-      <entry key="S5" value="8.329758241389866" />
-      <entry key="S10" value="13.693978251106106" />
-      <entry key="S30" value="21.481500698766325" />
-      <entry key="S60" value="24.639758625271" />
-      <entry key="M2" value="27.665035954619537" />
-      <entry key="M5" value="33.214894969619614" />
-      <entry key="M10" value="37.79645249280288" />
-      <entry key="M15" value="40.113372515813154" />
-      <entry key="M30" value="43.08605662291526" />
-      <entry key="H1" value="44.90202954384978" />
-      <entry key="H2" value="45.91221638074961" />
-      <entry key="H4" value="46.4459173223549" />
-      <entry key="D1" value="46.906193335817704" />
-      <entry key="W1" value="46.98656271070383" />
+      <entry key="MS100" value="0.8010801561661057" />
+      <entry key="MS500" value="1.0571598258485972" />
+      <entry key="S2" value="1.5801617017141258" />
+      <entry key="S5" value="2.0298555543382553" />
+      <entry key="S10" value="2.3786849920749598" />
+      <entry key="S30" value="2.7497538350667656" />
+      <entry key="S60" value="2.8684043061803313" />
+      <entry key="M2" value="2.9502272279515043" />
+      <entry key="M5" value="4.727276468683184" />
+      <entry key="M10" value="11.673558408279893" />
+      <entry key="M15" value="18.04229641484788" />
+      <entry key="M30" value="29.38798430237765" />
+      <entry key="H1" value="38.140677626683" />
+      <entry key="H2" value="43.61647748475358" />
+      <entry key="H4" value="46.685265124408154" />
+      <entry key="D1" value="49.42958667335534" />
+      <entry key="W1" value="49.918060645371796" />
     </decayedShown>
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -90,6 +91,7 @@
     "Python.download_data.executor": "Run",
     "Python.procesador_eda.executor": "Run",
     "git-widget-placeholder": "eda",
+    "git.auto.fetch.suggestion.counter": "1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -113,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781476968450</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
+      <option name="closed" value="true" />
+      <created>1781477192309</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1781477192309</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
