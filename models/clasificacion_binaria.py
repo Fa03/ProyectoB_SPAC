@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.metrics import classification_report,confusion_matrix
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.layers import Dense,Dropout
 
 
@@ -41,11 +41,11 @@ class ClasificacionBinaria:
         # Para clasificación binaria "binary_crossentropy"
         model.compile(loss='binary_crossentropy', optimizer='adam')
 
-        early_stop = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=23)
+        early_stop = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=20) # ~** patience disminuida
 
         model.fit(x=X_train,
                   y=y_train,
-                  epochs=600,
+                  epochs=500, #~** reducido de 600
                   validation_data=(X_test, y_test), verbose=1,
                   callbacks=[early_stop]
                   )
@@ -57,16 +57,20 @@ class ClasificacionBinaria:
         return model
 
 
-    def entrena_modelo(self,X_test,y_test, model):
-        predictions = model.predict_classes(X_test)
+    def evaluar_modelo(self,X_test,y_test, model):
+        predictions = (model.predict(X_test) > 0.5).astype("int32")
         print(classification_report(y_test, predictions))
         print(confusion_matrix(y_test, predictions))
+
+    def guardar_modelo(self,model, nombre_modelo):
+        model.save(nombre_modelo + ".h5")
 
 
 prueba_binaria = ClasificacionBinaria()
 X,Y, X_train, X_test, y_train, y_test = prueba_binaria.dividir_df(prueba_binaria.df)
-prueba_binaria.crearModeloBinario(X,Y, X_train, X_test, y_train, y_test)
-
+modelo_creado = prueba_binaria.crearModeloBinario(X,Y, X_train, X_test, y_train, y_test)
+prueba_binaria.evaluar_modelo(X_test, y_test, modelo_creado)
+prueba_binaria.guardar_modelo(modelo_creado,"modelo_TELCO")
 
 
 
