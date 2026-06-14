@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones" />
+    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones">
+      <change afterPath="$PROJECT_DIR$/models/modelo_TELCO.keras" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/clasificacion_binaria.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/clasificacion_binaria.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/modelo_TELCO.h5" beforeDir="false" afterPath="$PROJECT_DIR$/models/modelo_TELCO.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/prediccion_nuevosDatos.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,61 +53,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000038745221127" />
-      <entry key="MS500" value="1.181507070539551" />
-      <entry key="S2" value="3.841658868740067" />
-      <entry key="S5" value="7.368479206865839" />
-      <entry key="S10" value="10.26505570516205" />
-      <entry key="S30" value="16.549522167318102" />
-      <entry key="S60" value="21.165889257893873" />
-      <entry key="M2" value="25.192395632942286" />
-      <entry key="M5" value="32.51206244687228" />
-      <entry key="M10" value="42.491429596091216" />
-      <entry key="M15" value="49.82135679867414" />
-      <entry key="M30" value="63.678163780515334" />
-      <entry key="H1" value="81.58854139504587" />
-      <entry key="H2" value="104.26722589605025" />
-      <entry key="H4" value="125.06885561619237" />
-      <entry key="D1" value="151.37407898248327" />
-      <entry key="W1" value="157.020646592117" />
+      <entry key="MS100" value="1.0000000002461062" />
+      <entry key="MS500" value="1.0120523193450324" />
+      <entry key="S2" value="1.4479755210053957" />
+      <entry key="S5" value="2.2599105047671437" />
+      <entry key="S10" value="2.992470989821602" />
+      <entry key="S30" value="4.3371528987585375" />
+      <entry key="S60" value="5.382613434743116" />
+      <entry key="M2" value="6.418430079422723" />
+      <entry key="M5" value="9.23281857763588" />
+      <entry key="M10" value="15.201484728003672" />
+      <entry key="M15" value="21.02016262934998" />
+      <entry key="M30" value="38.27313015330324" />
+      <entry key="H1" value="67.08051433431655" />
+      <entry key="H2" value="104.06429645216366" />
+      <entry key="H4" value="139.2962733016795" />
+      <entry key="D1" value="186.5790784735591" />
+      <entry key="W1" value="197.15111111277074" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="2.479749206003036E-192" />
-      <entry key="MS500" value="4.773990516793096E-39" />
-      <entry key="S2" value="2.62857509033319E-10" />
-      <entry key="S5" value="1.471933383411574E-4" />
-      <entry key="S10" value="0.01213232617189142" />
-      <entry key="S30" value="0.22979240312202823" />
-      <entry key="S60" value="0.48509416440612224" />
-      <entry key="M2" value="0.8276403396738029" />
-      <entry key="M5" value="1.9411045053096623" />
-      <entry key="M10" value="3.602470067077165" />
-      <entry key="M15" value="4.974808706045791" />
-      <entry key="M30" value="7.85886125789658" />
-      <entry key="H1" value="10.894248193320953" />
-      <entry key="H2" value="13.534370335467754" />
-      <entry key="H4" value="15.440341285967193" />
-      <entry key="D1" value="17.51525043592782" />
-      <entry key="W1" value="17.9291176242953" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="7.796211811259395E-204" />
+      <entry key="S10" value="4.444033586780881E-102" />
+      <entry key="S30" value="3.352620585401064E-34" />
+      <entry key="S60" value="3.163625949795526E-17" />
+      <entry key="M2" value="9.739723335511612E-9" />
+      <entry key="M5" value="0.0012616684471677972" />
+      <entry key="M10" value="0.07935054394450582" />
+      <entry key="M15" value="0.3731641397231422" />
+      <entry key="M30" value="2.1875080469426913" />
+      <entry key="H1" value="6.1163683861253455" />
+      <entry key="H2" value="10.915175189517479" />
+      <entry key="H4" value="14.963406475398399" />
+      <entry key="D1" value="19.809568721395216" />
+      <entry key="W1" value="20.824630200648212" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9592678604110246" />
-      <entry key="MS500" value="1.1644399922599398" />
-      <entry key="S2" value="3.786303633859146" />
-      <entry key="S5" value="7.326230251903053" />
-      <entry key="S10" value="10.2493014315634" />
-      <entry key="S30" value="16.760790850704144" />
-      <entry key="S60" value="21.63651875166279" />
-      <entry key="M2" value="26.005852178359138" />
-      <entry key="M5" value="34.43091683319811" />
-      <entry key="M10" value="46.067421125094974" />
-      <entry key="M15" value="54.77027377579024" />
-      <entry key="M30" value="71.5164384130046" />
-      <entry key="H1" value="92.46912065516088" />
-      <entry key="H2" value="117.79350399456659" />
-      <entry key="H4" value="140.504739895303" />
-      <entry key="D1" value="168.88851679337463" />
-      <entry key="W1" value="174.94964620449645" />
+      <entry key="MS100" value="1.7872139845014103E-4" />
+      <entry key="MS500" value="0.17982846328472285" />
+      <entry key="S2" value="0.9405416621424453" />
+      <entry key="S5" value="1.9273846903089473" />
+      <entry key="S10" value="2.7685602798152895" />
+      <entry key="S30" value="4.212950267668142" />
+      <entry key="S60" value="5.293810513651754" />
+      <entry key="M2" value="6.358916180183779" />
+      <entry key="M5" value="9.198393277206373" />
+      <entry key="M10" value="15.253500307736472" />
+      <entry key="M15" value="21.369900006635287" />
+      <entry key="M30" value="40.44204605363369" />
+      <entry key="H1" value="73.18228477129786" />
+      <entry key="H2" value="114.96935939339589" />
+      <entry key="H4" value="154.25353150049526" />
+      <entry key="D1" value="206.38741742150862" />
+      <entry key="W1" value="217.97555969711482" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -192,7 +198,7 @@
       <workItem from="1781408758934" duration="87000" />
       <workItem from="1781408880742" duration="22000" />
       <workItem from="1781408945267" duration="1944000" />
-      <workItem from="1781448394510" duration="8867000" />
+      <workItem from="1781448394510" duration="13330000" />
     </task>
     <task id="LOCAL-00001" summary="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones">
       <option name="closed" value="true" />
@@ -210,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781460922194</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones">
+      <option name="closed" value="true" />
+      <created>1781460975264</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1781460975264</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,9 +246,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/git_Clones$prediccion_nuevosDatos.coverage" NAME="prediccion_nuevosDatos Coverage Results" MODIFIED="1781460522328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+    <SUITE FILE_PATH="coverage/git_Clones$prediccion_nuevosDatos.coverage" NAME="prediccion_nuevosDatos Coverage Results" MODIFIED="1781461682573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781409571937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
-    <SUITE FILE_PATH="coverage/git_Clones$clasificacion_binaria.coverage" NAME="clasificacion_binaria Coverage Results" MODIFIED="1781457686908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+    <SUITE FILE_PATH="coverage/git_Clones$clasificacion_binaria.coverage" NAME="clasificacion_binaria Coverage Results" MODIFIED="1781465342217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781410174612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
   </component>
 </project>
