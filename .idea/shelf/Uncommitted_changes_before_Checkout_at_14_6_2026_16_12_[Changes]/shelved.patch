@@ -1,0 +1,258 @@
+Index: eda/procesador_eda.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from pathlib import Path\r\nimport pandas as pd\r\nimport numpy as np\r\n\r\n\r\nimport seaborn as sns\r\nimport matplotlib.pyplot as plt\r\nimport os  # Librería para manejar rutas de archivos.\r\nfrom sklearn.preprocessing import OneHotEncoder\r\n\r\n\r\nclass ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a realizar un análisis EDA.\r\n    def __init__(self, DF_data=pd.DataFrame()):  # Realizamos el constructor.\r\n        self.__DF_data = DF_data  # Atributo privado que almacena el DataFrame.\r\n        self.__num_filas = DF_data.shape[0]  # Atributos privados que almacenan el número de filas y columnas.\r\n        self.__num_columnas = DF_data.shape[1]\r\n\r\n    # Creamos los propertys (getters) para acceder a los atributos privados.\r\n    @property\r\n    def DF_data(self):\r\n        return self.__DF_data\r\n\r\n    @property\r\n    def num_filas(self):\r\n        return self.__num_filas\r\n\r\n    @property\r\n    def num_columnas(self):\r\n        return self.__num_columnas\r\n\r\n    # Creamos los setters para que podamos modificar los atributos privados si es necesario.\r\n    @DF_data.setter\r\n    def DF_data(self, DF_data):\r\n        self.__DF_data = DF_data\r\n        self.__num_filas = DF_data.shape[0]\r\n        self.__num_columnas = DF_data.shape[1]\r\n\r\n    @num_filas.setter\r\n    def num_filas(self, num_filas):\r\n        self.__num_filas = num_filas\r\n\r\n    @num_columnas.setter\r\n    def num_columnas(self, num_columnas):\r\n        self.__num_columnas = num_columnas\r\n\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n    # 1. Método en el cual obtendremos información general del Dataset proporcionado.\r\n    def informacion_data(self):\r\n        print(\"Información general del dataset\")\r\n        print(f\"Descripcion del dataset \\n{self.__DF_data.info()}\") #Resumen de las variables del dataset\r\n        print(f\"Primeros 5 registros del data set: \\n{self.__DF_data.head(5)}\") #Obtencion de las primeras 5 lineas del dataset\r\n        print(f\"Estadística básica del dataset:\\n{self.__DF_data.describe()}\") #Estadistica basica del dataset\r\n\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n\r\n    # 2. Método con el que podremos limpiar textos ya que tenemos varias variables STR\r\n    #Dicho metodo nos permite evaluar las variables que contengan texto y les realiza una limpieza de formato\r\n    def limpiar_texto(self):\r\n    # Añadimos 'str' y str de forma explícita para evitar el Pandas4Warning\r\n        columnas_texto = self.__DF_data.select_dtypes(\r\n            include=['object', 'category', 'str', str]\r\n        ).columns  # Selecciona las columnas de tipo texto.\r\n\r\n        print(\"Iniciando la limpieza de textos...\")\r\n        for columna in columnas_texto:\r\n                # Mostramos en consola qué variable se está limpiando justo ahora\r\n            print(f\" -> Limpiando texto en la variable: '{columna}'\")\r\n\r\n            self.__DF_data[columna] = (self.__DF_data[columna].astype(str).apply(\r\n                lambda x: x.encode('utf-8', 'ignore').decode('utf-8', 'ignore'))\r\n            )  # Asegura que los datos sean de tipo string limpios.\r\n\r\n        print(\"¡Todas las columnas categóricas han sido limpiadas con éxito!\\n\")\r\n\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n\r\n    # 3. Método para verificar, reportar y limpiar datos nulos\r\n    # Este metodo revisa las variables y verifica si alguna fila esta vacia, el metodo nos genera alerta si se encuentra algun registro faltante\r\n    def gestionar_datos_nulos(self):\r\n        print(\"--- Verificación de Integridad de Datos (Nulos) ---\")\r\n\r\n        #Evaluamos a nivel global si el dataset tiene CUALQUIER dato nulo\r\n        if self.__DF_data.isnull().values.any():\r\n            print(\"Alerta: Se detectaron datos faltantes en el dataset.\\n\")\r\n\r\n        #Reportamos el conteo detallado por columna\r\n            print(\"Conteo de nulos por variable:\")\r\n            print(self.__DF_data.isnull().sum())\r\n\r\n            # 3. Ejecutamos la desinfección eliminando las filas con nulos\r\n            print(\"\\nProcediendo con la desinfección...\")\r\n            self.__DF_data.dropna(inplace=True)\r\n            print(\"Los datos nulos han sido eliminados correctamente.\")\r\n        else:\r\n        # Si no hay nulos, saltamos la limpieza e informamos al usuario\r\n            print(\"¡Todo está bien! El dataset no contiene registros nulos. No se requiere limpieza.\")\r\n\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n\r\n    #4 Gestionar datos duplicados\r\n    #Este metodo nos permite determinar si existen valores duplicados.\r\n    #Realiza 2 acciones:\r\n    #1- Si encuentra valores nulos los elimina\r\n    #2- Sino encuentra valores nulos indicara que no se requiere eliminar duplicados\r\n    def gestionar_datos_duplicados(self, eliminar=False):\r\n        duplicados = self.__DF_data.duplicated().sum()\r\n        print('Este dataset tiene los siguientes datos duplicados:')\r\n        print(duplicados)\r\n\r\n        if eliminar:\r\n            self.__DF_data.drop_duplicates(inplace=True)\r\n            print('Los datos duplicados han sido eliminados correctamente')\r\n        else:\r\n            print('No se eliminaron los duplicados')\r\n\r\n\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n\r\n    #5 Reemplazar Yes/No de la variable objetivo Churn por 1-0\r\n    #Dicho metodo nos permite identificar la variable objetivo \"Churn\"y aplicacion un ciclo si encuentra que sea \"Si\" lo cambio por \"1\", pero si encuentra que sea \"no\" lo cambio por \"0\"\r\n    # En dicho metodo se utiliza pandas.map() para realizar el mapeo de Si/No\r\n    def transformar_target_churn(self):\r\n        print(\"--- Transformando Variable Objetivo (Churn) ---\")\r\n\r\n        #Antes de realizar el cambio de valores de la variable verifica si existe en el DF\r\n        if 'Churn' not in self.__DF_data.columns:\r\n            print(\"La columna 'Churn' no se encuentra en el dataset o ya fue transformada.\")\r\n            return\r\n\r\n        #Aplicamos el mapeo de 'Yes'/'No' a 1/0\r\n        # Usamos .map() que es la forma más rápida y estándar en Pandas\r\n        self.__DF_data['Churn'] = self.__DF_data['Churn'].map({'Yes': 1, 'No': 0})\r\n\r\n        print(\"✅ Transformación de 'Churn' completada con éxito (Yes -> 1, No -> 0).\")\r\n\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n    #6 Generar OneHotEncoder ya que existen varias variables que se deben de pasar de STR a int\r\n    #La variables que se requieren pasar a OneHotEncoder son: gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod'\r\n    #Se implementa OneHotEncoder debido a que las variables mencionadas anteriormente tiene datos como \"YES\" o \"NO\"\r\n    def aplicar_one_hot_encoding(self, columnas_especificas=None, columnas_a_excluir=None):\r\n        print(\"--- Aplicando One-Hot Encoding Optimizado ---\")\r\n\r\n        # Antes de aplicar el OneHotEncoder se debe definir columnas a excluir por defecto que no se les aplicara la codificacion.\r\n        if columnas_a_excluir is None:\r\n            columnas_a_excluir = ['customerID','MonthlyCharges', 'TotalCharges', 'Churn','tenure']\r\n        else:\r\n            columnas_a_excluir = list(set(columnas_a_excluir + ['customerID', 'TotalCharges']))\r\n\r\n        # Seleccionar todas las categóricas\r\n        if columnas_especificas is None:\r\n            columnas_especificas = self.__DF_data.select_dtypes(\r\n                include=['object', 'category', 'string']\r\n            ).columns.tolist()\r\n\r\n        # 4. Excluir la variable objetivo y las columnas problemáticas\r\n        columnas_especificas = [col for col in columnas_especificas if col not in columnas_a_excluir]\r\n\r\n        # 5. Filtrar columnas con alta cardinalidad\r\n        columnas_especificas = [\r\n            col for col in columnas_especificas\r\n            if self.__DF_data[col].nunique() < 20\r\n        ]\r\n\r\n        if not columnas_especificas:\r\n            print(\"No se encontraron variables categóricas para codificar.\")\r\n            return\r\n\r\n        print(f\"Variables seleccionadas para codificación: {columnas_especificas}\")\r\n\r\n        # Proceso de One-Hot Encoding optimizado para no duplicar variables binarias\r\n        # Usamos drop='if_binary' para mantener 1 sola columna en variables de Sí/No\r\n        encoder = OneHotEncoder(sparse_output=False, drop='if_binary', handle_unknown='ignore')\r\n        encoded_results = encoder.fit_transform(self.__DF_data[columnas_especificas])\r\n        nuevos_nombres = encoder.get_feature_names_out(columnas_especificas)\r\n\r\n        df_encoded = pd.DataFrame(\r\n            encoded_results,\r\n            columns=nuevos_nombres,\r\n            index=self.__DF_data.index\r\n        )\r\n\r\n        #Unir resultados y eliminar las columnas originales codificadas\r\n        self.__DF_data = self.__DF_data.join(df_encoded)\r\n        self.__DF_data.drop(columns=columnas_especificas, inplace=True)\r\n\r\n        # Actualizar dimensiones internas\r\n        self.__num_filas = self.__DF_data.shape[0]\r\n        self.__num_columnas = self.__DF_data.shape[1]\r\n\r\n        print(\"One-Hot Encoding completado con éxito.\")\r\n        print(\r\n            f\"Nuevo tamaño del dataset: {self.__num_filas} filas x {self.__num_columnas} columnas (Estructura compacta).\\n\")\r\n        print(\"\\n\" + \"=\" * 100 + \"\\n\")\r\n        print(\"One-Hot Encoding\")\r\n        print(\"\\n\" + \"=\" * 100 + \"\\n\")\r\n\r\n        # 8. Configuración de Pandas y muestra\r\n        pd.set_option('display.max_columns', None)\r\n        pd.set_option('display.width', 1000)\r\n\r\n        print(\"--- Primeros 5 registros del Dataset Actualizado One-Hot Encoding ---\")\r\n        print(self.__DF_data.head(5))\r\n\r\n        return self.__DF_data\r\n\r\n\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n    #7 Calculo de correlaciones\r\n    #El metodo obtener_correlaciones_fuertes me permite hacer correlaciones con respecto la variable Churn me ordena de mayor a menor.\r\n\r\n    def obtener_correlaciones_fuertes(self, umbral=0.1):\r\n        print(f\"--- Calculando Correlaciones Fuertes con Churn (Ordenadas de Mayor a Menor) ---\")\r\n\r\n        #$Asegurar que Churn exista y sea numérica\r\n        if 'Churn' not in self.__DF_data.columns:\r\n            print(\"❌ Error: La columna 'Churn' no existe. Asegúrate de haber mapeado 'Yes'/'No' a 1/0 primero.\")\r\n            return\r\n\r\n        # En caso de que Churn siga detectada como objeto, forzar numérico temporalmente\r\n        if self.__DF_data['Churn'].dtype == 'object':\r\n            self.__DF_data['Churn'] = pd.to_numeric(self.__DF_data['Churn'], errors='coerce')\r\n\r\n        # Selecciona únicamente las columnas numéricas (Correlación de Pearson requiere números)\r\n        df_numerico = self.__DF_data.select_dtypes(include=['number'])\r\n\r\n        # Calcular la matriz de correlación con respecto a Churn\r\n        # .corr() calcula la relación entre todas; luego extraemos solo la serie de 'Churn'\r\n        correlaciones = df_numerico.corr()['Churn'].drop('Churn')  # Eliminamos la correlación de Churn consigo misma\r\n\r\n        # Filtrar por el umbral absoluto (mantiene las que superan el umbral en magnitud)\r\n        correlaciones_filtradas = correlaciones[correlaciones.abs() >= umbral]\r\n\r\n        # Ordenar estrictamente de mayor a menor (Valores reales de Pearson)\r\n        # Al quitar el .abs() y poner ascending=False, las positivas altas van arriba y las negativas abajo\r\n        correlaciones_ordenadas = correlaciones_filtradas.sort_values(ascending=False)\r\n\r\n        if correlaciones_ordenadas.empty:\r\n            print(f\"No se encontraron variables con correlación mayor o igual al umbral {umbral}.\")\r\n            return\r\n\r\n        # Mostrar los resultados formateados en pantalla\r\n        print(f\"\\nVariables más correlacionadas con el Churn (Abandono):\")\r\n        print(f\"{'Variable':<45} | {'Coeficiente de Correlación':<25}\")\r\n        print(\"-\" * 75)\r\n        for col, val in correlaciones_ordenadas.items():\r\n            print(f\"{col:<45} | {val:>24.4f}\")\r\n\r\n        print(\"-\" * 75)\r\n        print(f\"Total de características con fuerte relación: {len(correlaciones_ordenadas)}\\n\")\r\n\r\n        return correlaciones_ordenadas\r\n\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n    #8 Visualizar correlaciones\r\n    #El metodo nos muestra las correlaciones fuertes con respecto a la variable \"Churn\"\r\n    #Devuelve correlacion fuerte positiva=\"Roja\" y correlacion fuerte negativa=\"Azul\"\r\n    def grafico_correlaciones_churn(self, target='Churn', top_n=10):\r\n\r\n        print(f\"--- Graficando Top {top_n} correlaciones con {target} ---\")\r\n\r\n        # 1. Validar que la variable objetivo exista en el DataFrame actual\r\n        if target not in self.__DF_data.columns:\r\n            print(f\"La columna '{target}' no existe en el dataset.\")\r\n            print(\"Asegúrate de haber ejecutado 'transformar_target_churn()' primero.\")\r\n            return\r\n\r\n        # Calcular la correlación de Pearson (solo numéricas)\r\n        corr = self.__DF_data.corr(numeric_only=True)[target]\r\n\r\n        if target in corr.index:\r\n            corr_ordenado = corr.abs().sort_values(ascending=False).drop(target)\r\n        else:\r\n            corr_ordenado = corr.abs().sort_values(ascending=False)\r\n\r\n        top_indices = corr_ordenado.head(top_n).index\r\n\r\n        #Recuperar los valores con su signo real (+ o -) y ordenarlos para el gráfico de barras\r\n        top_signed = corr[top_indices].sort_values(ascending=True)\r\n\r\n        #Configuración estética del gráfico\r\n        plt.figure(figsize=(10, 6))\r\n\r\n        # Asignar color: Rojo para correlación positiva (fomenta el Churn) y Azul para negativa (retención)\r\n        colores = np.where(top_signed.values >= 0, '#e74c3c', '#3498db')\r\n\r\n        # Dibujar gráfico de barras horizontales\r\n        barras = plt.barh(top_signed.index, top_signed.values, color=colores, edgecolor='black', alpha=0.8)\r\n\r\n        # Añadir los valores numéricos al final de cada barra para facilitar la lectura\r\n        for barra in barras:\r\n            ancho = barra.get_width()\r\n            posicion_x = ancho + 0.01 if ancho >= 0 else ancho - 0.05\r\n            ha_alineacion = 'left' if ancho >= 0 else 'right'\r\n            plt.text(posicion_x, barra.get_y() + barra.get_height() / 2,\r\n                     f'{ancho:.2f}',\r\n                     va='center', ha=ha_alineacion, fontsize=10, fontweight='bold')\r\n\r\n        # Línea vertical en el cero para dar equilibrio visual\r\n        plt.axvline(0, color='gray', linestyle='--', linewidth=0.8)\r\n\r\n        # Títulos y etiquetas estilizadas\r\n        plt.title(f'Top {top_n} Características con Mayor Impacto en el Churn', fontsize=14, fontweight='bold', pad=15)\r\n        plt.xlabel('Coeficiente de Correlación (Pearson)', fontsize=11, labelpad=10)\r\n        plt.ylabel('Variables del Dataset', fontsize=11)\r\n\r\n        # Ajustar márgenes para que no se corten las etiquetas de texto larguísimas del One-Hot\r\n        plt.tight_layout()\r\n        plt.show()\r\n\r\n\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n    #8 Generar dataset reducido con la variables fuertemente correlacionadas\r\n    #El siguiente metodo nos permite generar 1 dataset limpio con las variables fuertemente correlacionadas y variables predefinadas para el modelo IA\r\n\r\n    def generar_dataset_reducido(self, target='Churn', umbral=0.25):\r\n        from pathlib import Path  # Nos aseguramos de tener Path disponible\r\n        import pandas as pd\r\n\r\n        print(f\"--- Generando dataset reducido basado en correlación (Umbral: {umbral}) ---\")\r\n\r\n        # Validar que la variable objetivo exista con el nombre correcto\r\n        if target not in self.__DF_data.columns:\r\n            print(f\"❌ La columna '{target}' no existe.\")\r\n            print(\"Asegúrate de haber ejecutado 'transformar_target_churn()' primero.\")\r\n            return None\r\n\r\n        # Calcular correlaciones (solo numéricas)\r\n        corr = self.__DF_data.corr(numeric_only=True)[target]\r\n\r\n        # Seleccionar variables con correlación fuerte (usando el umbral absoluto de 0.25)\r\n        variables_fuertes = corr[\r\n            (corr >= umbral) | (corr <= -umbral)\r\n            ].index.tolist()\r\n\r\n        # Forzar la inclusión del target y de todas las columnas requeridas\r\n        columnas_obligatorias = [\r\n            target, 'gender_Male', 'TotalCharges', 'MonthlyCharges',\r\n            'InternetService_DSL', 'InternetService_No'\r\n        ]\r\n\r\n        for col in columnas_obligatorias:\r\n            if col in self.__DF_data.columns and col not in variables_fuertes:\r\n                variables_fuertes.append(col)\r\n\r\n        #NUEVA REGLA: Excluir columnas no deseadas explícitamente \uD83C\uDF1F\r\n        columnas_a_quitar = ['PaymentMethod_Electronic check']\r\n        variables_fuertes = [col for col in variables_fuertes if col not in columnas_a_quitar]\r\n\r\n        #ORDENAR COLUMNAS A TU GUSTO\r\n        orden_deseado_inicio = [\r\n            'Churn', 'gender_Male', 'tenure', 'MonthlyCharges', 'TotalCharges',\r\n            'InternetService_No', 'InternetService_DSL'\r\n        ]\r\n\r\n        # Filtramos solo las que realmente existan en 'variables_fuertes' por seguridad\r\n        columnas_inicio = [col for col in orden_deseado_inicio if col in variables_fuertes]\r\n\r\n        # El resto de las variables seleccionadas van al final (conservando el orden que tenían)\r\n        columnas_resto = [col for col in variables_fuertes if col not in columnas_inicio]\r\n\r\n        # Combinamos ambas listas para el orden final definitivo\r\n        columnas_ordenadas_final = columnas_inicio + columnas_resto\r\n\r\n        print(f\"✅ Variables seleccionadas finales ordenadas ({len(columnas_ordenadas_final)}):\")\r\n        print(columnas_ordenadas_final)\r\n\r\n        # Crear el nuevo dataset reducido con el nuevo orden de columnas\r\n        self.__DF_reducido = self.__DF_data[columnas_ordenadas_final].copy()\r\n\r\n        print(\"\\n✅ Dataset reducido creado correctamente\")\r\n        print(f\"Nuevo tamaño: {self.__DF_reducido.shape[0]} filas x {self.__DF_reducido.shape[1]} columnas\")\r\n\r\n        # Definir ruta y crear directorios si no existen\r\n        ruta = Path('src/eda/processed/telco_churn_reducido.csv')\r\n        ruta.parent.mkdir(parents=True, exist_ok=True)\r\n\r\n        # Guardar el DataFrame a formato CSV\r\n        self.__DF_reducido.to_csv(ruta, index=False)\r\n\r\n        print(f'✅ El dataset reducido se ha guardado en: {ruta.resolve()}')\r\n        print(\"\\n--- Primeros 5 registros del Dataset Reducido (Columnas Ordenadas) ---\")\r\n\r\n        # Configuración de visualización en consola para el print\r\n        pd.set_option('display.max_columns', None)\r\n        pd.set_option('display.width', 1000)\r\n        print(self.__DF_reducido.head(5))\r\n        print(\"=\" * 60 + \"\\n\")\r\n\r\n        return self.__DF_reducido\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n\r\n    # -------------------------------------------------------------------------------------------------------------------#\r\n\r\n    # 12. Método para realizar la limpieza general del dataset\r\n    #El metodo ejecutar_eda nos permite ejecutar todos los metodos que se crearon anteriormente con cierto formato para interpretarlo.\r\n    def ejecutar_eda(self):\r\n        print(\"=\" * 120)\r\n        print(\"=\" * 120)\r\n        print(\"\\n\")\r\n        print(\"Ejecución procesamiento EDA \\n\")\r\n        print(\"\\n\")\r\n        print(\"=\" * 60)\r\n        print(\"\\n\")\r\n        print(\"#1 Informacion del dataset \"\"WA_Fn-UseC_-Telco-Customer-Churn.csv\"\", datos estadistico\")\r\n        print(\"\\n\")\r\n        self.informacion_data()\r\n        print(\"\\n\")\r\n        print(\"=\" * 60)\r\n        print(\"#2 Limpieza texto de las variables STR\")\r\n        self.limpiar_texto()\r\n        print(\"\\n\")\r\n        print(\"=\" * 60)\r\n        print(\"#3 Verificacion datos nulos\")\r\n        self.gestionar_datos_nulos()\r\n        print(\"\\n\")\r\n        print(\"=\" * 60)\r\n        print(\"#4 Validacion datos duplicados\")\r\n        self.gestionar_datos_duplicados()\r\n        print(\"\\n\")\r\n        print(\"=\" * 60)\r\n        print(\"5 Trasnformar target Churn\")\r\n        self.transformar_target_churn()\r\n        print(\"\\n\")\r\n        print(\"=\" * 60)\r\n        print(\"#6 Aplicar Onehotencoding al dataset\")\r\n        self.aplicar_one_hot_encoding()\r\n        print(\"\\n\")\r\n        print(\"=\" * 60)\r\n        print(\"#7 Calcular correlaciones\")\r\n        self.obtener_correlaciones_fuertes()\r\n        print(\"\\n\")\r\n        print(\"=\" * 60)\r\n        print(\"#8 Generar Grafico de correlaciones\")\r\n        self.grafico_correlaciones_churn()\r\n        print(\"\\n\")\r\n        print(\"=\" * 60)\r\n        print(\"#9 Generar dataset con las principales correlaciones\")\r\n        self.generar_dataset_reducido()\r\n        print(\"\\n\")\r\n\r\n\r\n# =============================================================================\r\n# Ejecucion de la clase por medio del main\r\n# =============================================================================\r\n\r\nif __name__ == \"__main__\":\r\n\r\n    # 1. Obtenemos la ruta absoluta de la carpeta donde está este script\r\n    directorio_actual = os.path.dirname(os.path.abspath(__file__))\r\n\r\n    # CORRECCIÓN: Quitamos un \"raw\" que estaba duplicado\r\n    ruta_real_archivo = os.path.normpath(\r\n        os.path.join(\r\n            directorio_actual,\r\n            \"..\", \"..\",\r\n            \"data\", \"raw\",\r\n            \"WA_Fn - UseC_ - Telco - Customer - Churn.csv\"\r\n        )\r\n    )\r\n\r\n    print(f\"Buscando archivo en la ruta calculada:\\n--> {ruta_real_archivo}\\n\")\r\n\r\n    # 3. Validamos si el archivo existe e iniciamos el EDA\r\n    if os.path.exists(ruta_real_archivo):\r\n        print(\"¡Archivo encontrado con éxito! Cargando datos...\")\r\n        # Nota: Asegúrate de haber importado pandas como pd y os al inicio del script\r\n        df_clientes = pd.read_csv(ruta_real_archivo)\r\n\r\n        # Instanciamos la clase y corremos el proceso\r\n        analisis_churn = ProcesadorEDA(DF_data=df_clientes)\r\n        analisis_churn.ejecutar_eda()\r\n    else:\r\n        print(\"ERROR: El archivo no se encuentra en la ruta calculada.\")\r\n        print(f\"Por favor, verifica que el archivo exista en: {ruta_real_archivo}\")
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/eda/procesador_eda.py b/eda/procesador_eda.py
+--- a/eda/procesador_eda.py	(revision eb0b7c49ab1f573a5e207b98c578a165f12822ab)
++++ b/eda/procesador_eda.py	(date 1781471837354)
+@@ -453,7 +453,7 @@
+         os.path.join(
+             directorio_actual,
+             "..", "..",
+-            "data", "raw",
++            "data", "raw","raw"
+             "WA_Fn - UseC_ - Telco - Customer - Churn.csv"
+         )
+     )
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"EmbeddingIndexingInfo\">\r\n    <option name=\"cachedIndexableFilesCount\" value=\"25\" />\r\n    <option name=\"fileBasedEmbeddingIndicesEnabled\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Fa03&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/Fa03/ProyectoB_SPAC.git&quot;,\r\n\r\n  }\r\n}]]></component>\r\n  <component name=\"McpProjectServerCommands\">\r\n    <commands />\r\n    <urls />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4,\r\n  &quot;fromUser&quot;: false\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3F6t1jcqi38CAYf4pkEbzkJOqY6\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,\r\n    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;modelo2&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/fab_t/Documents/Codigo/IA_Aplicada/ProyectoB_SPAC&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.26830.99\" />\r\n        <option value=\"bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d2d5d9ac-e510-49ff-8f26-04937e5091b4\" name=\"Changes\" comment=\"\" />\r\n      <created>1781407134312</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1781407134312</updated>\r\n      <workItem from=\"1781407135519\" duration=\"147000\" />\r\n      <workItem from=\"1781410457971\" duration=\"380000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1781460922194</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1781460922194</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1781460975264</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1781460975264</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision eb0b7c49ab1f573a5e207b98c578a165f12822ab)
++++ b/.idea/workspace.xml	(date 1781475095876)
+@@ -1,27 +1,29 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="AutoImportSettings">
+-
++    <option name="autoReloadType" value="ALL" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/eda/procesador_eda.py" beforeDir="false" afterPath="$PROJECT_DIR$/eda/procesador_eda.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/us_de_ia.md" beforeDir="false" afterPath="$PROJECT_DIR$/us_de_ia.md" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="EmbeddingIndexingInfo">
+-    <option name="cachedIndexableFilesCount" value="25" />
+-    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+-  </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="Python Script" />
+-      </list>
+-    </option>
++    <option name="cachedIndexableFilesCount" value="13" />
+   </component>
+   <component name="Git.Settings">
++    <option name="INCOMING_COMMITS_CHECK_STRATEGY" value="FETCH" />
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-
++        <entry key="$PROJECT_DIR$" value="master" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -35,13 +37,72 @@
+   <component name="GithubPullRequestsUISettings">{
+   &quot;selectedUrlAndAccountId&quot;: {
+     &quot;url&quot;: &quot;https://github.com/Fa03/ProyectoB_SPAC.git&quot;,
+-
++    &quot;accountId&quot;: &quot;f9e0d941-2fdf-4965-b758-2cde3d41de65&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="McpProjectServerCommands">
+     <commands />
+     <urls />
+   </component>
++  <component name="NextEditCompletionFeaturesState">
++    <decayedCancelled>
++      <entry key="MS100" value="1.0048055772391713" />
++      <entry key="MS500" value="1.5526083222921474" />
++      <entry key="S2" value="3.393270387137441" />
++      <entry key="S5" value="4.790572857349776" />
++      <entry key="S10" value="6.041381061411376" />
++      <entry key="S30" value="8.489048639603176" />
++      <entry key="S60" value="10.052578495206365" />
++      <entry key="M2" value="11.284394198757868" />
++      <entry key="M5" value="12.569649834772985" />
++      <entry key="M10" value="13.695954375994384" />
++      <entry key="M15" value="14.385714146240375" />
++      <entry key="M30" value="15.408515675367013" />
++      <entry key="H1" value="16.112163972523486" />
++      <entry key="H2" value="16.529657060539193" />
++      <entry key="H4" value="16.757735445765043" />
++      <entry key="D1" value="16.958592834113862" />
++      <entry key="W1" value="16.9940588675136" />
++    </decayedCancelled>
++    <decayedSelected>
++      <entry key="MS100" value="0.0" />
++      <entry key="MS500" value="0.0" />
++      <entry key="S2" value="0.0" />
++      <entry key="S5" value="0.0" />
++      <entry key="S10" value="0.0" />
++      <entry key="S30" value="0.0" />
++      <entry key="S60" value="0.0" />
++      <entry key="M2" value="0.0" />
++      <entry key="M5" value="0.0" />
++      <entry key="M10" value="0.0" />
++      <entry key="M15" value="0.0" />
++      <entry key="M30" value="0.0" />
++      <entry key="H1" value="0.0" />
++      <entry key="H2" value="0.0" />
++      <entry key="H4" value="0.0" />
++      <entry key="D1" value="0.0" />
++      <entry key="W1" value="0.0" />
++    </decayedSelected>
++    <decayedShown>
++      <entry key="MS100" value="0.9309807480784121" />
++      <entry key="MS500" value="1.5282843524926106" />
++      <entry key="S2" value="3.3796968873143514" />
++      <entry key="S5" value="4.7829887564811475" />
++      <entry key="S10" value="6.03682923501238" />
++      <entry key="S30" value="8.487057327380182" />
++      <entry key="S60" value="10.051402217492699" />
++      <entry key="M2" value="11.283728525404317" />
++      <entry key="M5" value="12.569332274617912" />
++      <entry key="M10" value="13.695703276659055" />
++      <entry key="M15" value="14.385475863180876" />
++      <entry key="M30" value="15.408323305298829" />
++      <entry key="H1" value="16.112036580944906" />
++      <entry key="H2" value="16.52958312246619" />
++      <entry key="H4" value="16.757695538914426" />
++      <entry key="D1" value="16.95858573891335" />
++      <entry key="W1" value="16.994057842539256" />
++    </decayedShown>
++  </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 4,
+   &quot;fromUser&quot;: false
+@@ -51,30 +112,34 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;modelo2&quot;,
+-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/fab_t/Documents/Codigo/IA_Aplicada/ProyectoB_SPAC&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ModuleVcsDetector.initialDetectionPerformed": "true",
++    "Python.download_data.executor": "Run",
++    "Python.procesador_eda.executor": "Run",
++    "RunOnceActivity.MCP Project settings loaded": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
++    "codeWithMe.voiceChat.enabledByDefault": "false",
++    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
++    "ignore.virus.scanning.warn.message": "true",
++    "junie.onboarding.icon.badge.shown": "true",
++    "last_opened_file_path": "C:/Users/fab_t/Documents/Codigo/IA_Aplicada/ProyectoB_SPAC",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
++    "to.speed.mode.migration.done": "true",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.26830.99" />
+-        <option value="bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99" />
++        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -86,25 +151,10 @@
+       <option name="presentableId" value="Default" />
+       <updated>1781407134312</updated>
+       <workItem from="1781407135519" duration="147000" />
+-      <workItem from="1781410457971" duration="380000" />
+-    </task>
+-    <task id="LOCAL-00002" summary="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones">
+-      <option name="closed" value="true" />
+-      <created>1781460922194</created>
+-      <option name="number" value="00002" />
+-      <option name="presentableId" value="LOCAL-00002" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1781460922194</updated>
++      <workItem from="1781408758934" duration="87000" />
++      <workItem from="1781408880742" duration="22000" />
++      <workItem from="1781408945267" duration="1944000" />
+     </task>
+-    <task id="LOCAL-00003" summary="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones">
+-      <option name="closed" value="true" />
+-      <created>1781460975264</created>
+-      <option name="number" value="00003" />
+-      <option name="presentableId" value="LOCAL-00003" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1781460975264</updated>
+-    </task>
+-    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -121,4 +171,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781410174612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
++    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781409571937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision eb0b7c49ab1f573a5e207b98c578a165f12822ab)
++++ b/.idea/vcs.xml	(date 1781475151554)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
