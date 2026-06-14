@@ -1,90 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="" />
+    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/raw/download_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/raw/download_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eda/procesador_eda.py" beforeDir="false" afterPath="$PROJECT_DIR$/eda/procesador_eda.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="13" />
-    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
-  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Fa03"
-  }
-}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/Fa03/ProyectoB_SPAC.git",
-    "accountId": "960b1b59-51f6-4b5c-b849-43e9bb452c36"
+    "accountId": "f9e0d941-2fdf-4965-b758-2cde3d41de65"
   }
 }]]></component>
-  <component name="McpProjectServerCommands">
-    <commands />
-    <urls />
-  </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4,
-  "fromUser": false
-}]]></component>
-  <component name="ProjectId" id="3F6t1jcqi38CAYf4pkEbzkJOqY6" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000049150262" />
+      <entry key="MS500" value="1.0360900119781833" />
+      <entry key="S2" value="2.310900653794281" />
+      <entry key="S5" value="4.463824540036171" />
+      <entry key="S10" value="6.302480587324294" />
+      <entry key="S30" value="8.445301168094794" />
+      <entry key="S60" value="9.280750940889437" />
+      <entry key="M2" value="10.245144367582894" />
+      <entry key="M5" value="12.156961700951777" />
+      <entry key="M10" value="13.74071287536182" />
+      <entry key="M15" value="14.551727617585495" />
+      <entry key="M30" value="15.602764171386694" />
+      <entry key="H1" value="16.249551539373634" />
+      <entry key="H2" value="16.610535146357524" />
+      <entry key="H4" value="16.80153128834937" />
+      <entry key="D1" value="16.966387203399446" />
+      <entry key="W1" value="16.99518486675406" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.2022005118631294E-227" />
+      <entry key="S2" value="1.862062385034993E-57" />
+      <entry key="S5" value="2.0324321840522812E-23" />
+      <entry key="S10" value="4.5374772600047275E-12" />
+      <entry key="S30" value="1.960325643911748E-4" />
+      <entry key="S60" value="0.018405925910435182" />
+      <entry key="M2" value="0.18788934895632756" />
+      <entry key="M5" value="0.7725218894224072" />
+      <entry key="M10" value="1.2419063428385473" />
+      <entry key="M15" value="1.4554065271600871" />
+      <entry key="M30" value="1.705943663932714" />
+      <entry key="H1" value="1.8470843160934267" />
+      <entry key="H2" value="1.922010266344278" />
+      <entry key="H4" value="1.9606143890090084" />
+      <entry key="D1" value="1.9933807889439907" />
+      <entry key="W1" value="1.9990530440302736" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.8066417632700832" />
+      <entry key="MS500" value="0.9925880161569949" />
+      <entry key="S2" value="2.2818983673353745" />
+      <entry key="S5" value="4.393573167187494" />
+      <entry key="S10" value="6.206297767821053" />
+      <entry key="S30" value="8.378306377519111" />
+      <entry key="S60" value="9.251377194203371" />
+      <entry key="M2" value="10.379145445079484" />
+      <entry key="M5" value="12.869613067616262" />
+      <entry key="M10" value="14.937307541234889" />
+      <entry key="M15" value="15.972228634091653" />
+      <entry key="M30" value="17.288479272992323" />
+      <entry key="H1" value="18.085734302658047" />
+      <entry key="H2" value="18.526884797148956" />
+      <entry key="H4" value="18.759261187455774" />
+      <entry key="D1" value="18.95927956787076" />
+      <entry key="W1" value="18.99416794587254" />
+    </decayedShown>
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/fab_t/Documents/Codigo/IA_Aplicada/ProyectoB_SPAC",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+    "Python.download_data.executor": "Run",
+    "Python.procesador_eda.executor": "Run",
+    "git-widget-placeholder": "eda",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.24374.152" />
-        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="" />
-      <created>1781407134312</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1781407134312</updated>
-      <workItem from="1781407135519" duration="147000" />
-    </task>
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781476580045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
+    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781475535640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
   </component>
 </project>
