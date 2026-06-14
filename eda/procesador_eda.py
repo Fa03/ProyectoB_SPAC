@@ -437,6 +437,11 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         print("#9 Generar dataset con las principales correlaciones")
         self.generar_dataset_reducido()
         print("\n")
+        print("=" * 60)
+        print("Descripcion del nuevo dataset")
+        print(self.__DF_reducido.info())
+        print("hola mundo")
+
 
 
 # =============================================================================
@@ -448,13 +453,7 @@ if __name__ == "__main__":
     # 1. Obtenemos la ruta absoluta de la carpeta donde está este script
     directorio_actual = os.path.dirname(os.path.abspath(__file__))
 
-    # CORRECCIÓN: Quitamos un "raw" que estaba duplicado
-    ruta_real_archivo = os.path.normpath(
-        os.path.join(
-            directorio_actual,
-            "..", "..",
-            "data", "raw",
-            "WA_Fn - UseC_ - Telco - Customer - Churn.csv"
+
         )
     )
 
