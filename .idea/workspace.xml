@@ -1,127 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
-      <change beforePath="$PROJECT_DIR$/eda/procesador_eda.py" beforeDir="false" afterPath="$PROJECT_DIR$/eda/procesador_eda.py" afterDir="false" />
-    </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="INCOMING_COMMITS_CHECK_STRATEGY" value="FETCH" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="eda" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Fa03/ProyectoB_SPAC.git",
-    "accountId": "f9e0d941-2fdf-4965-b758-2cde3d41de65"
-  }
-}]]></component>
-  <component name="NextEditCompletionFeaturesState">
-    <decayedCancelled>
-      <entry key="MS100" value="1.0000151533889075" />
-      <entry key="MS500" value="1.1086808124416638" />
-      <entry key="S2" value="1.633896740081096" />
-      <entry key="S5" value="2.1249440747797124" />
-      <entry key="S10" value="2.4641600492050046" />
-      <entry key="S30" value="2.7924297567780116" />
-      <entry key="S60" value="2.8920389294014583" />
-      <entry key="M2" value="2.96265482754445" />
-      <entry key="M5" value="4.714953883302201" />
-      <entry key="M10" value="11.488749050362255" />
-      <entry key="M15" value="17.63127114957268" />
-      <entry key="M30" value="28.48014290473108" />
-      <entry key="H1" value="36.79295897948887" />
-      <entry key="H2" value="41.974642256146" />
-      <entry key="H4" value="44.873161496650525" />
-      <entry key="D1" value="47.46220216036196" />
-      <entry key="W1" value="47.92275285323834" />
-    </decayedCancelled>
-    <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="6.094468342739922E-299" />
-      <entry key="S5" value="5.175981349563631E-120" />
-      <entry key="S10" value="2.2898275760503362E-60" />
-      <entry key="S30" value="1.5607175993881363E-20" />
-      <entry key="S60" value="1.6423122140973217E-10" />
-      <entry key="M2" value="1.7748072258729646E-5" />
-      <entry key="M5" value="0.01896751362345862" />
-      <entry key="M10" value="0.19459812459059855" />
-      <entry key="M15" value="0.4230102151818456" />
-      <entry key="M30" value="0.9197037422659899" />
-      <entry key="H1" value="1.356214411138183" />
-      <entry key="H2" value="1.6469352317753938" />
-      <entry key="H4" value="1.8148995550540652" />
-      <entry key="D1" value="1.967887814725632" />
-      <entry key="W1" value="1.9953806500675053" />
-    </decayedSelected>
-    <decayedShown>
-      <entry key="MS100" value="0.8010801561661057" />
-      <entry key="MS500" value="1.0571598258485972" />
-      <entry key="S2" value="1.5801617017141258" />
-      <entry key="S5" value="2.0298555543382553" />
-      <entry key="S10" value="2.3786849920749598" />
-      <entry key="S30" value="2.7497538350667656" />
-      <entry key="S60" value="2.8684043061803313" />
-      <entry key="M2" value="2.9502272279515043" />
-      <entry key="M5" value="4.727276468683184" />
-      <entry key="M10" value="11.673558408279893" />
-      <entry key="M15" value="18.04229641484788" />
-      <entry key="M30" value="29.38798430237765" />
-      <entry key="H1" value="38.140677626683" />
-      <entry key="H2" value="43.61647748475358" />
-      <entry key="H4" value="46.685265124408154" />
-      <entry key="D1" value="49.42958667335534" />
-      <entry key="W1" value="49.918060645371796" />
-    </decayedShown>
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.download_data.executor": "Run",
-    "Python.procesador_eda.executor": "Run",
-    "git-widget-placeholder": "eda",
-    "git.auto.fetch.suggestion.counter": "1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
-  <component name="TaskManager">
-    <task id="LOCAL-00001" summary="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
-      <option name="closed" value="true" />
-      <created>1781476891481</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1781476891481</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
-      <option name="closed" value="true" />
-      <created>1781476968450</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1781476968450</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
-      <option name="closed" value="true" />
-      <created>1781477192309</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1781477192309</updated>
+
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
