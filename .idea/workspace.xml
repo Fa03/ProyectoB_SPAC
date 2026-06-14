@@ -8,8 +8,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="13" />
-
+    <option name="cachedIndexableFilesCount" value="25" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -30,7 +37,7 @@
     &quot;url&quot;: &quot;https://github.com/Fa03/ProyectoB_SPAC.git&quot;,
 
   }
-}</component>
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -81,6 +88,23 @@
       <workItem from="1781407135519" duration="147000" />
       <workItem from="1781410457971" duration="380000" />
     </task>
+    <task id="LOCAL-00002" summary="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones">
+      <option name="closed" value="true" />
+      <created>1781460922194</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1781460922194</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones">
+      <option name="closed" value="true" />
+      <created>1781460975264</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1781460975264</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
