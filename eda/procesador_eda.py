@@ -133,7 +133,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         # Usamos .map() que es la forma más rápida y estándar en Pandas
         self.__DF_data['Churn'] = self.__DF_data['Churn'].map({'Yes': 1, 'No': 0})
 
-        print("✅ Transformación de 'Churn' completada con éxito (Yes -> 1, No -> 0).")
+        print("Transformación de 'Churn' completada con éxito (Yes -> 1, No -> 0).")
 
         # 📊 NUEVA SECCIÓN: Conteo de 0 y 1 al final de la transformación
         print("\n--- Conteo de clases en la variable 'Churn' ---")
@@ -227,7 +227,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
         #$Asegurar que Churn exista y sea numérica
         if 'Churn' not in self.__DF_data.columns:
-            print("❌ Error: La columna 'Churn' no existe. Asegúrate de haber mapeado 'Yes'/'No' a 1/0 primero.")
+            print("Error: La columna 'Churn' no existe. Asegúrate de haber mapeado 'Yes'/'No' a 1/0 primero.")
             return
 
         # En caso de que Churn siga detectada como objeto, forzar numérico temporalmente
@@ -333,7 +333,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
         # Validar que la variable objetivo exista con el nombre correcto
         if target not in self.__DF_data.columns:
-            print(f"❌ La columna '{target}' no existe.")
+            print(f"La columna '{target}' no existe.")
             print("Asegúrate de haber ejecutado 'transformar_target_churn()' primero.")
             return None
 
@@ -355,7 +355,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
             if col in self.__DF_data.columns and col not in variables_fuertes:
                 variables_fuertes.append(col)
 
-        #NUEVA REGLA: Excluir columnas no deseadas explícitamente 🌟
+        #NUEVA REGLA: Excluir columnas no deseadas explícitamente
         columnas_a_quitar = ['PaymentMethod_Electronic check']
         variables_fuertes = [col for col in variables_fuertes if col not in columnas_a_quitar]
 
@@ -374,13 +374,13 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         # Combinamos ambas listas para el orden final definitivo
         columnas_ordenadas_final = columnas_inicio + columnas_resto
 
-        print(f"✅ Variables seleccionadas finales ordenadas ({len(columnas_ordenadas_final)}):")
+        print(f"Variables seleccionadas finales ordenadas ({len(columnas_ordenadas_final)}):")
         print(columnas_ordenadas_final)
 
         # Crear el nuevo dataset reducido con el nuevo orden de columnas
         self.__DF_reducido = self.__DF_data[columnas_ordenadas_final].copy()
 
-        print("\n✅ Dataset reducido creado correctamente")
+        print("\nDataset reducido creado correctamente")
         print(f"Nuevo tamaño: {self.__DF_reducido.shape[0]} filas x {self.__DF_reducido.shape[1]} columnas")
 
         # Definir ruta y crear directorios si no existen
@@ -390,7 +390,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         # Guardar el DataFrame a formato CSV
         self.__DF_reducido.to_csv(ruta, index=False)
 
-        print(f'✅ El dataset reducido se ha guardado en: {ruta.resolve()}')
+        print(f'El dataset reducido se ha guardado en: {ruta.resolve()}')
         print("\n--- Primeros 5 registros del Dataset Reducido (Columnas Ordenadas) ---")
 
         # Configuración de visualización en consola para el print
@@ -415,7 +415,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
         # 1. Validar que la variable objetivo exista
         if target not in self.__DF_data.columns:
-            print(f"❌ La columna '{target}' no existe.")
+            print(f"La columna '{target}' no existe.")
             return None
 
         # 2. Calcular correlaciones (solo numéricas)
@@ -450,13 +450,13 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         columnas_resto = [col for col in variables_fuertes if col not in columnas_inicio]
         columnas_ordenadas_final = columnas_inicio + columnas_resto
 
-        print(f"✅ Variables seleccionadas para el modelo ({len(columnas_ordenadas_final)}):")
+        print(f"Variables seleccionadas para el modelo ({len(columnas_ordenadas_final)}):")
         print(columnas_ordenadas_final)
 
         # 5. ASIGNACIÓN AL NUEVO DATAFRAME SOLICITADO
         self.__DF_reducido_modelo = self.__DF_data[columnas_ordenadas_final].copy()
 
-        print("\n✅ DataFrame 'self.__DF_reducido_modelo' creado correctamente.")
+        print("\nDataFrame 'self.__DF_reducido_modelo' creado correctamente.")
         print(f"Tamaño: {self.__DF_reducido_modelo.shape[0]} filas x {self.__DF_reducido_modelo.shape[1]} columnas")
 
         # 6. DEFINIR NUEVA RUTA Y GUARDAR NUEVO ARCHIVO
@@ -466,7 +466,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         # Guardar a formato CSV
         self.__DF_reducido_modelo.to_csv(ruta, index=False)
 
-        print(f'✅ El nuevo archivo se ha guardado en: {ruta.resolve()}')
+        print(f'El nuevo archivo se ha guardado en: {ruta.resolve()}')
         print("\n--- Primeros 5 registros del Nuevo Dataset ---")
 
         # Configuración de visualización en consola
@@ -491,14 +491,14 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
             # 1. Validación de existencia del dataset reducido
             if not hasattr(self, '_ProcesadorEDA__DF_reducido') or self.__DF_reducido is None:
-                print("❌ ERROR: El dataset reducido no existe en memoria. No se puede calcular la matriz.")
+                print("ERROR: El dataset reducido no existe en memoria. No se puede calcular la matriz.")
                 return None
 
             # 2. Seleccionar columnas numéricas (detecta automáticamente int64 y float64)
             df_numerico = self.__DF_reducido.select_dtypes(include=['number'])
 
             if df_numerico.empty:
-                print("❌ No hay columnas numéricas o dummies para generar la matriz de correlación.")
+                print("No hay columnas numéricas o dummies para generar la matriz de correlación.")
                 return None
 
             # 3. Calcular la matriz de correlación de Pearson
