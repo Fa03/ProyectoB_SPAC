@@ -4,128 +4,26 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Creacion de graficos EDA.">
+    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="feature:ya guarda los.csv en la carpeta de &quot;data/processed&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/test_binario.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/test_binario.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/train_binario.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/train_binario.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/clasificacion_binaria.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/clasificacion_binaria.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/modelo_TELCO.keras" beforeDir="false" afterPath="$PROJECT_DIR$/models/modelo_TELCO.keras" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="INCOMING_COMMITS_CHECK_STRATEGY" value="FETCH" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="API_ModeloBinario" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Fa03/ProyectoB_SPAC.git&quot;,
-    &quot;accountId&quot;: &quot;f9e0d941-2fdf-4965-b758-2cde3d41de65&quot;
-  }
-}</component>
-  <component name="McpProjectServerCommands">
-    <commands />
-    <urls />
-  </component>
-  <component name="NextEditCompletionFeaturesState">
-    <decayedCancelled>
-      <entry key="MS100" value="2.0073045686949857" />
-      <entry key="MS500" value="5.192294850004508" />
-      <entry key="S2" value="10.495370575994516" />
-      <entry key="S5" value="14.852482515018005" />
-      <entry key="S10" value="17.68364477260443" />
-      <entry key="S30" value="20.344729418548102" />
-      <entry key="S60" value="21.142527147594972" />
-      <entry key="M2" value="21.625650346657636" />
-      <entry key="M5" value="22.834653458037312" />
-      <entry key="M10" value="27.23287960421655" />
-      <entry key="M15" value="32.49598041788677" />
-      <entry key="M30" value="44.00643983917448" />
-      <entry key="H1" value="54.349078583405415" />
-      <entry key="H2" value="61.359839779756406" />
-      <entry key="H4" value="65.45339173723416" />
-      <entry key="D1" value="69.20860980209392" />
-      <entry key="W1" value="69.88609106690323" />
-    </decayedCancelled>
-    <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="4.0506578092044145E-160" />
-      <entry key="S10" value="2.0256723870623094E-80" />
-      <entry key="S30" value="3.227848454428242E-27" />
-      <entry key="S60" value="7.468787914379598E-14" />
-      <entry key="M2" value="3.784847543257957E-7" />
-      <entry key="M5" value="0.004069764559883531" />
-      <entry key="M10" value="0.0901401115025501" />
-      <entry key="M15" value="0.25324282456512565" />
-      <entry key="M30" value="0.7116084565030321" />
-      <entry key="H1" value="1.1929573802534994" />
-      <entry key="H2" value="1.5446312142872711" />
-      <entry key="H4" value="1.757627089401952" />
-      <entry key="D1" value="1.9573989925178237" />
-      <entry key="W1" value="1.993857831016016" />
-    </decayedSelected>
-    <decayedShown>
-      <entry key="MS100" value="1.9281925559846922" />
-      <entry key="MS500" value="5.151168319723915" />
-      <entry key="S2" value="10.47498787930002" />
-      <entry key="S5" value="14.84101033709" />
-      <entry key="S10" value="17.67683076557955" />
-      <entry key="S30" value="20.342120514266114" />
-      <entry key="S60" value="21.14116144790383" />
-      <entry key="M2" value="21.624694492974047" />
-      <entry key="M5" value="22.837017818140687" />
-      <entry key="M10" value="27.318345068616253" />
-      <entry key="M15" value="32.74195452304632" />
-      <entry key="M30" value="44.70882304812076" />
-      <entry key="H1" value="55.5345394200532" />
-      <entry key="H2" value="62.89967605085858" />
-      <entry key="H4" value="67.20830525840945" />
-      <entry key="D1" value="71.16550719675044" />
-      <entry key="W1" value="71.87987595576753" />
-    </decayedShown>
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.download_data.executor": "Run",
-    "Python.procesador_eda.executor": "Run",
-    "git-widget-placeholder": "API__ModeloBinario",
-    "git.auto.fetch.suggestion.counter": "1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
-  <component name="TaskManager">
-    <task id="LOCAL-00001" summary="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
-      <option name="closed" value="true" />
-      <created>1781476891481</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1781476891481</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
-      <option name="closed" value="true" />
-      <created>1781476968450</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1781476968450</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
-      <option name="closed" value="true" />
-      <created>1781477192309</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1781477192309</updated>
+
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
@@ -143,16 +41,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
-    <MESSAGE value="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/git_Clones$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781500960184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
-    <SUITE FILE_PATH="coverage/git_Clones$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781500440431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
-    <SUITE FILE_PATH="coverage/git_Clones$api.coverage" NAME="api Coverage Results" MODIFIED="1781497574401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
-    <SUITE FILE_PATH="coverage/git_Clones$Modelo_Regresion.coverage" NAME="Modelo_Regresion Coverage Results" MODIFIED="1781500271586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
-    <SUITE FILE_PATH="coverage/git_Clones$clasificacion_binaria.coverage" NAME="clasificacion_binaria Coverage Results" MODIFIED="1781501254337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781476580045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781475535640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781481751581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/git_Clones$prediccion_nuevosDatos.coverage" NAME="prediccion_nuevosDatos Coverage Results" MODIFIED="1781461682573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781409571937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
+    <SUITE FILE_PATH="coverage/git_Clones$clasificacion_binaria.coverage" NAME="clasificacion_binaria Coverage Results" MODIFIED="1781479796112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781410174612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
   </component>
 </project>
