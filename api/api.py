@@ -202,4 +202,4 @@ if __name__ == "__main__":
     import uvicorn
     print("Iniciando servidor FastAPI...")
     print("Documentación: http://localhost:8000/docs")
-    uvicorn.run("main:app", host=config.API_HOST, port=config.API_PORT, reload=config.API_RELOAD)
+    uvicorn.run("api:app", host=config.API_HOST, port=config.API_PORT, reload=config.API_RELOAD)

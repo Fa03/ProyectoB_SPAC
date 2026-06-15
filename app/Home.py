@@ -284,7 +284,7 @@ st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #666;'>
     <p>Sistema desarrollado para el curso de Inteligencia Artificial Aplicada</p>
-    <p>Colegio Universitario de Cartago (CUC) - 2025</p>
+    <p>Colegio Universitario de Cartago (CUC) - 2026</p>
 </div>
 """, unsafe_allow_html=True)
 
