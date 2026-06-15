@@ -393,6 +393,79 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
 
     # -------------------------------------------------------------------------------------------------------------------#
+    def generar_dataset_final_modelo(self, target='Churn', umbral=0.25):
+        """
+        Crea el dataset específico para el modelo eliminando variables de internet,
+        métodos de pago y cargos totales. Almacena el resultado en self.__DF_reducido_modelo.
+        """
+
+        print(f"\n--- Generando dataset específico para el modelo (Umbral: {umbral}) ---")
+
+        # 1. Validar que la variable objetivo exista
+        if target not in self.__DF_data.columns:
+            print(f"❌ La columna '{target}' no existe.")
+            return None
+
+        # 2. Calcular correlaciones (solo numéricas)
+        corr = self.__DF_data.corr(numeric_only=True)[target]
+
+        # Seleccionar variables con correlación fuerte
+        variables_fuertes = corr[(corr >= umbral) | (corr <= -umbral)].index.tolist()
+
+        # Forzar la inclusión únicamente del target y gender_Male
+        columnas_obligatorias = [target, 'gender_Male']
+
+        for col in columnas_obligatorias:
+            if col in self.__DF_data.columns and col not in variables_fuertes:
+                variables_fuertes.append(col)
+
+        # 3. Lista negra de exclusión de columnas solicitadas
+        columnas_a_quitar = [
+            'PaymentMethod_Electronic check',
+            'tenure',
+            'TotalCharges',
+            'InternetService_Fiber optic',
+            'InternetService_DSL',
+            'InternetService_No'
+        ]
+
+        # Filtramos la lista eliminando las columnas prohibidas
+        variables_fuertes = [col for col in variables_fuertes if col not in columnas_a_quitar]
+
+        # 4. Configurar orden de las columnas
+        orden_deseado_inicio = [target, 'gender_Male']
+        columnas_inicio = [col for col in orden_deseado_inicio if col in variables_fuertes]
+        columnas_resto = [col for col in variables_fuertes if col not in columnas_inicio]
+        columnas_ordenadas_final = columnas_inicio + columnas_resto
+
+        print(f"✅ Variables seleccionadas para el modelo ({len(columnas_ordenadas_final)}):")
+        print(columnas_ordenadas_final)
+
+        # 5. ASIGNACIÓN AL NUEVO DATAFRAME SOLICITADO
+        self.__DF_reducido_modelo = self.__DF_data[columnas_ordenadas_final].copy()
+
+        print("\n✅ DataFrame 'self.__DF_reducido_modelo' creado correctamente.")
+        print(f"Tamaño: {self.__DF_reducido_modelo.shape[0]} filas x {self.__DF_reducido_modelo.shape[1]} columnas")
+
+        # 6. DEFINIR NUEVA RUTA Y GUARDAR NUEVO ARCHIVO
+        ruta = Path('src/eda/processed/telco_churn_reducido_modelo.csv')
+        ruta.parent.mkdir(parents=True, exist_ok=True)
+
+        # Guardar a formato CSV
+        self.__DF_reducido_modelo.to_csv(ruta, index=False)
+
+        print(f'✅ El nuevo archivo se ha guardado en: {ruta.resolve()}')
+        print("\n--- Primeros 5 registros del Nuevo Dataset ---")
+
+        # Configuración de visualización en consola
+        pd.set_option('display.max_columns', None)
+        pd.set_option('display.width', 1000)
+        print(self.__DF_reducido_modelo.head(5))
+        print("=" * 60 + "\n")
+
+        return self.__DF_reducido_modelo
+    # -------------------------------------------------------------------------------------------------------------------#
+
     #10 Generar grafico con respecto al servicio de internet
     def graficar_boxplot_internet_churn(self):
         """
@@ -571,6 +644,10 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         self.generar_dataset_reducido()
         print("\n")
         print("=" * 60)
+        print("Genera Dataset reducido para modelo")
+        self.generar_dataset_reducido()
+        print("\n")
+        print("=" * 60)
         print("Descripcion del nuevo dataset")
         print(self.__DF_reducido.info())
         print("Generando grafico Servicio Internet con respecto a Churn")
@@ -587,11 +664,19 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 # =============================================================================
 
 if __name__ == "__main__":
+    import os
+    import pandas as pd
 
-    # 1. Obtenemos la ruta absoluta de la carpeta donde está este script
+    # 1. Obtenemos la ruta absoluta de la carpeta donde está este script (src/eda)
     directorio_actual = os.path.dirname(os.path.abspath(__file__))
 
-
+    # 2. Construimos la ruta subiendo UN solo nivel hacia la raíz del proyecto
+    ruta_real_archivo = os.path.normpath(
+        os.path.join(
+            directorio_actual,
+            "..",
+            "data", "raw", "raw",
+            "WA_Fn-UseC_-Telco-Customer-Churn.csv"
         )
     )
 
@@ -600,12 +685,17 @@ if __name__ == "__main__":
     # 3. Validamos si el archivo existe e iniciamos el EDA
     if os.path.exists(ruta_real_archivo):
         print("¡Archivo encontrado con éxito! Cargando datos...")
-        # Nota: Asegúrate de haber importado pandas como pd y os al inicio del script
         df_clientes = pd.read_csv(ruta_real_archivo)
 
-        # Instanciamos la clase y corremos el proceso
+        # Instanciamos la clase y corremos el proceso base
         analisis_churn = ProcesadorEDA(DF_data=df_clientes)
         analisis_churn.ejecutar_eda()
+
+        # 4. Generamos el nuevo dataset específico para el modelo
+        # Esto guardará el archivo 'telco_churn_reducido_modelo.csv'
+        # e internamente creará 'analisis_churn.self.__DF_reducido_modelo'
+        df_modelo = analisis_churn.generar_dataset_final_modelo(target='Churn', umbral=0.25)
+
     else:
         print("ERROR: El archivo no se encuentra en la ruta calculada.")
         print(f"Por favor, verifica que el archivo exista en: {ruta_real_archivo}")

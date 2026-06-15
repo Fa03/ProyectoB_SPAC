@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
+    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Creacion de graficos EDA.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eda/procesador_eda.py" beforeDir="false" afterPath="$PROJECT_DIR$/eda/procesador_eda.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,82 +22,124 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Fa03/ProyectoB_SPAC.git&quot;,
-    &quot;accountId&quot;: &quot;f9e0d941-2fdf-4965-b758-2cde3d41de65&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "malvarezq208"
   }
-}</component>
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Fa03/ProyectoB_SPAC.git",
+    "accountId": "f9e0d941-2fdf-4965-b758-2cde3d41de65"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "Fa03",
+    "repository": "ProyectoB_SPAC"
+  }
+}]]></component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000151533889075" />
-      <entry key="MS500" value="1.1086808124416638" />
-      <entry key="S2" value="1.633896740081096" />
-      <entry key="S5" value="2.1249440747797124" />
-      <entry key="S10" value="2.4641600492050046" />
-      <entry key="S30" value="2.7924297567780116" />
-      <entry key="S60" value="2.8920389294014583" />
-      <entry key="M2" value="2.96265482754445" />
-      <entry key="M5" value="4.714953883302201" />
-      <entry key="M10" value="11.488749050362255" />
-      <entry key="M15" value="17.63127114957268" />
-      <entry key="M30" value="28.48014290473108" />
-      <entry key="H1" value="36.79295897948887" />
-      <entry key="H2" value="41.974642256146" />
-      <entry key="H4" value="44.873161496650525" />
-      <entry key="D1" value="47.46220216036196" />
-      <entry key="W1" value="47.92275285323834" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0000000039796368" />
+      <entry key="S60" value="1.0002000428549112" />
+      <entry key="M2" value="1.0476449822708789" />
+      <entry key="M5" value="2.5112022306310227" />
+      <entry key="M10" value="7.480807131713795" />
+      <entry key="M15" value="13.202028611332825" />
+      <entry key="M30" value="26.723379398920475" />
+      <entry key="H1" value="40.05295023870549" />
+      <entry key="H2" value="49.64067230657923" />
+      <entry key="H4" value="55.425092604612765" />
+      <entry key="D1" value="60.84455423107725" />
+      <entry key="W1" value="61.8334098669685" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="6.094468342739922E-299" />
-      <entry key="S5" value="5.175981349563631E-120" />
-      <entry key="S10" value="2.2898275760503362E-60" />
-      <entry key="S30" value="1.5607175993881363E-20" />
-      <entry key="S60" value="1.6423122140973217E-10" />
-      <entry key="M2" value="1.7748072258729646E-5" />
-      <entry key="M5" value="0.01896751362345862" />
-      <entry key="M10" value="0.19459812459059855" />
-      <entry key="M15" value="0.4230102151818456" />
-      <entry key="M30" value="0.9197037422659899" />
-      <entry key="H1" value="1.356214411138183" />
-      <entry key="H2" value="1.6469352317753938" />
-      <entry key="H4" value="1.8148995550540652" />
-      <entry key="D1" value="1.967887814725632" />
-      <entry key="W1" value="1.9953806500675053" />
+      <entry key="MS500" value="8.240409808387217E-296" />
+      <entry key="S2" value="1.6942878739317556E-74" />
+      <entry key="S5" value="3.1016649404120364E-30" />
+      <entry key="S10" value="1.7611544340043051E-15" />
+      <entry key="S30" value="1.207691526201758E-5" />
+      <entry key="S60" value="0.0035006757387144936" />
+      <entry key="M2" value="0.06400800330607143" />
+      <entry key="M5" value="0.44375294931664266" />
+      <entry key="M10" value="0.9558505920176934" />
+      <entry key="M15" value="1.3290511274222359" />
+      <entry key="M30" value="2.077364014130365" />
+      <entry key="H1" value="2.7937186630149644" />
+      <entry key="H2" value="3.3154805225247594" />
+      <entry key="H4" value="3.6341173773654427" />
+      <entry key="D1" value="3.9354153478997294" />
+      <entry key="W1" value="3.990680796267115" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8010801561661057" />
-      <entry key="MS500" value="1.0571598258485972" />
-      <entry key="S2" value="1.5801617017141258" />
-      <entry key="S5" value="2.0298555543382553" />
-      <entry key="S10" value="2.3786849920749598" />
-      <entry key="S30" value="2.7497538350667656" />
-      <entry key="S60" value="2.8684043061803313" />
-      <entry key="M2" value="2.9502272279515043" />
-      <entry key="M5" value="4.727276468683184" />
-      <entry key="M10" value="11.673558408279893" />
-      <entry key="M15" value="18.04229641484788" />
-      <entry key="M30" value="29.38798430237765" />
-      <entry key="H1" value="38.140677626683" />
-      <entry key="H2" value="43.61647748475358" />
-      <entry key="H4" value="46.685265124408154" />
-      <entry key="D1" value="49.42958667335534" />
-      <entry key="W1" value="49.918060645371796" />
+      <entry key="MS100" value="0.757858283255199" />
+      <entry key="MS500" value="0.9460576467255959" />
+      <entry key="S2" value="0.9862327044933592" />
+      <entry key="S5" value="0.9944701686732144" />
+      <entry key="S10" value="0.9972312513520708" />
+      <entry key="S30" value="0.9990872492485697" />
+      <entry key="S60" value="1.003080250428174" />
+      <entry key="M2" value="1.1098509675749972" />
+      <entry key="M5" value="2.9493216348307363" />
+      <entry key="M10" value="8.428524880226531" />
+      <entry key="M15" value="14.52141983399386" />
+      <entry key="M30" value="28.79002640013571" />
+      <entry key="H1" value="42.83798022570085" />
+      <entry key="H2" value="52.95051853806923" />
+      <entry key="H4" value="59.05598876369912" />
+      <entry key="D1" value="64.77936812779386" />
+      <entry key="W1" value="65.82400303765361" />
     </decayedShown>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3F9KwnKd4RYqIiWcHb9AonqBrxZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.download_data.executor": "Run",
     "Python.procesador_eda.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "#8 on eda",
     "git.auto.fetch.suggestion.counter": "1",
+    "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
       <option name="closed" value="true" />
@@ -120,8 +165,27 @@
       <option name="project" value="LOCAL" />
       <updated>1781477192309</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
+      <created>1781482091121</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1781482091121</updated>
+      <workItem from="1781482092859" duration="1855000" />
+    </task>
+    <task id="LOCAL-00004" summary="Actualizacion clase EDA.&#10;Creacion de graficos EDA.">
+      <option name="closed" value="true" />
+      <created>1781482110895</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1781482110895</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
@@ -129,7 +193,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781481751581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
+    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781483893171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781475535640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
   </component>
 </project>
