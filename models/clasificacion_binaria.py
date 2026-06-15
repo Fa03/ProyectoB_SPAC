@@ -10,6 +10,7 @@ from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.layers import Dense,Dropout
 from pathlib import Path
 from sklearn.preprocessing import StandardScaler
+from sklearn.utils import class_weight
 
 
 class ClasificacionBinaria:
@@ -17,7 +18,9 @@ class ClasificacionBinaria:
 
 
     def __init__(self):
-        self.df = pd.read_csv('C:/Users/fab_t/Downloads/Excel_telco_churn_reducido_Copy.csv')
+        # self.df = pd.read_csv('C:/Users/fab_t/Downloads/Excel_telco_churn_reducido_Copy.csv')
+        carpeta_datos = Path.cwd().parent / 'eda' / 'src' / 'eda' /'processed' # ubicación de la carpeta
+        self.df = pd.read_csv(carpeta_datos / 'telco_churn_reducido_modelo.csv')
 
 
     def dividir_df(self, df):
@@ -26,11 +29,11 @@ class ClasificacionBinaria:
         y = df['Churn'].values.astype(int)
 
         X_train_val, X_test, y_train_val, y_test = train_test_split(
-            X, y, test_size=0.25, random_state=101, stratify=y
+            X, y, test_size=0.20, random_state=101, stratify=y
         )
 
         X_train, X_val, y_train, y_val = train_test_split(
-            X_train_val, y_train_val, test_size=0.25, random_state=101, stratify=y_train_val
+            X_train_val, y_train_val, test_size=0.20, random_state=101, stratify=y_train_val
         )
         # Escalado de variables
         X_train = scaler.fit_transform(X_train)
@@ -57,25 +60,35 @@ class ClasificacionBinaria:
         model = Sequential()
         num_neuronas = X.shape[1] #~** número de neuronas según tamaño del DF
         model.add(Dense(units=num_neuronas,activation='relu'))
-        model.add(Dropout(0.4))  # la mitad de las neuronas en cada epoch para esta capa
+        model.add(Dropout(0.5))  # la mitad de las neuronas en cada epoch para esta capa
 
         model.add(Dense(units=int(np.round(num_neuronas/2)),activation='relu'))  #~** // agregado para que de un número entero
-        model.add(Dropout(0.4))  # la mitad de las neuronas en cada epoch para esta capa
+        model.add(Dropout(0.5))  # la mitad de las neuronas en cada epoch para esta capa
 
         model.add(Dense(units=1,activation='sigmoid')) # ~** neuronas de salida igual a variables a predecir, en este caso solo 1 variable "Churn
 
         # Para clasificación binaria "binary_crossentropy"
         model.compile(loss='binary_crossentropy', optimizer='adam')
 
-        early_stop = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=20) # ~** patience disminuida
+        early_stop = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=25) # ~** patience disminuida
 
+        #Balance de pesos de las variables en el set de datos para entrenamiento
+
+        weights = class_weight.compute_class_weight(
+            class_weight='balanced',
+            classes=np.unique(y_train),
+            y=y_train
+        )
+
+        class_weights = dict(enumerate(weights))
 
         # Entrenamiento del modelo
         model.fit(x=X_train,
                   y=y_train,
                   epochs=500, #~** reducido de 600
                   validation_data=(X_test, y_test), verbose=1,
-                  callbacks=[early_stop]
+                  callbacks=[early_stop],
+                  class_weight=class_weights
                   )
 
         model_loss = pd.DataFrame(model.history.history)
@@ -93,9 +106,12 @@ class ClasificacionBinaria:
     def guardar_modelo(self,model, nombre_modelo):
         model.save(nombre_modelo + ".keras")
 
-    def prediccion(self, model):
+    def prediccion(self, model, ruta):
+
         # Lectura datos a predecir
-        df_pred = pd.read_csv('C:/Users/fab_t/Downloads/telco_churn_generado_3000.csv')
+        df_pred = pd.read_csv(ruta)
+
+        #df_pred = pd.read_csv('C:/Users/fab_t/Downloads/telco_churn_generado_3000.csv')
         # df_pred = df_pred[
         #     df.columns]  # Filtramos el dataframe predicción para quedarnos con las mismas columnas de interés que el df histórico
         X_pred = df_pred.drop('Churn',
@@ -112,9 +128,10 @@ prueba_binaria = ClasificacionBinaria()
 X_train, X_val, X_test, y_train, y_val, y_test = prueba_binaria.dividir_df(prueba_binaria.df)
 modelo_creado = prueba_binaria.crearModeloBinario(X_val,y_val, X_train, X_test, y_train, y_test)
 prueba_binaria.evaluar_modelo(X_test, y_test, modelo_creado)
-prueba_binaria.guardar_modelo(modelo_creado,"modelo_TELCO")
 
-prueba_binaria.prediccion(modelo_creado)
+prueba_binaria.guardar_modelo(modelo_creado,"modelo_TELCO")
+ruta_datos_predecir = Path.cwd().parent / 'data' / 'prediccion_data'/ 'telco_churn_modelo_3000.csv'   # ubicación de la carpeta
+prueba_binaria.prediccion(modelo_creado,ruta_datos_predecir)
 
 
 
