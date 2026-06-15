@@ -1,0 +1,151 @@
+Index: models/clasificacion_binaria.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n\r\nimport pandas as pd\r\nimport numpy as np\r\nimport matplotlib.pyplot as plt\r\nfrom sklearn.model_selection import train_test_split\r\nfrom tensorflow.keras.callbacks import EarlyStopping\r\nfrom sklearn.metrics import classification_report,confusion_matrix\r\nfrom tensorflow.keras.models import Sequential, load_model\r\nfrom tensorflow.keras.layers import Dense,Dropout\r\nfrom pathlib import Path\r\nfrom sklearn.preprocessing import StandardScaler\r\n\r\n\r\nclass ClasificacionBinaria:\r\n\r\n\r\n\r\n    def __init__(self):\r\n        self.df = pd.read_csv('C:/Users/fab_t/Downloads/Excel_telco_churn_reducido_Copy.csv')\r\n\r\n\r\n    def dividir_df(self, df):\r\n        scaler = StandardScaler()\r\n        X = df.drop('Churn', axis=1).values\r\n        y = df['Churn'].values.astype(int)\r\n\r\n        X_train_val, X_test, y_train_val, y_test = train_test_split(\r\n            X, y, test_size=0.25, random_state=101, stratify=y\r\n        )\r\n\r\n        X_train, X_val, y_train, y_val = train_test_split(\r\n            X_train_val, y_train_val, test_size=0.25, random_state=101, stratify=y_train_val\r\n        )\r\n        # Escalado de variables\r\n        X_train = scaler.fit_transform(X_train)\r\n        X_val = scaler.transform(X_val)\r\n        X_test = scaler.transform(X_test)\r\n\r\n        print('Distribución de clases:')\r\n        print('Train:', np.bincount(y_train))\r\n        print('Val  :', np.bincount(y_val))\r\n        print('Test :', np.bincount(y_test))\r\n\r\n        # Para guardar datos de entrenamiento en la carpeta \"data/processed\", se crean DataFrames a partir de arrays\r\n        df_Train = pd.DataFrame(X_train)\r\n        df_Test = pd.DataFrame(X_test)\r\n\r\n        # Indicación de rutas de guardado\r\n        carpeta = Path.cwd().parent / 'data' / 'processed'  # ubicación de la carpeta\r\n        df_Train.to_csv(carpeta / 'train_binario.csv', index=False)\r\n        df_Test.to_csv(carpeta / 'test_binario.csv', index=False)\r\n\r\n        return X_train, X_val, X_test, y_train, y_val, y_test\r\n\r\n    def crearModeloBinario(self,X,Y, X_train, X_test, y_train, y_test):\r\n        model = Sequential()\r\n        num_neuronas = X.shape[1] #~** número de neuronas según tamaño del DF\r\n        model.add(Dense(units=num_neuronas,activation='relu'))\r\n        model.add(Dropout(0.4))  # la mitad de las neuronas en cada epoch para esta capa\r\n\r\n        model.add(Dense(units=int(np.round(num_neuronas/2)),activation='relu'))  #~** // agregado para que de un número entero\r\n        model.add(Dropout(0.4))  # la mitad de las neuronas en cada epoch para esta capa\r\n\r\n        model.add(Dense(units=1,activation='sigmoid')) # ~** neuronas de salida igual a variables a predecir, en este caso solo 1 variable \"Churn\r\n\r\n        # Para clasificación binaria \"binary_crossentropy\"\r\n        model.compile(loss='binary_crossentropy', optimizer='adam')\r\n\r\n        early_stop = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=20) # ~** patience disminuida\r\n\r\n\r\n        # Entrenamiento del modelo\r\n        model.fit(x=X_train,\r\n                  y=y_train,\r\n                  epochs=500, #~** reducido de 600\r\n                  validation_data=(X_test, y_test), verbose=1,\r\n                  callbacks=[early_stop]\r\n                  )\r\n\r\n        model_loss = pd.DataFrame(model.history.history)\r\n        model_loss.plot()\r\n        plt.show()\r\n\r\n        return model\r\n\r\n\r\n    def evaluar_modelo(self,X_test,y_test, model):\r\n        predictions = (model.predict(X_test) > 0.5).astype(\"int32\")\r\n        print(classification_report(y_test, predictions))\r\n        print(confusion_matrix(y_test, predictions))\r\n\r\n    def guardar_modelo(self,model, nombre_modelo):\r\n        model.save(nombre_modelo + \".keras\")\r\n\r\n    def prediccion(self, model):\r\n        # Lectura datos a predecir\r\n        df_pred = pd.read_csv('C:/Users/fab_t/Downloads/telco_churn_generado_3000.csv')\r\n        # df_pred = df_pred[\r\n        #     df.columns]  # Filtramos el dataframe predicción para quedarnos con las mismas columnas de interés que el df histórico\r\n        X_pred = df_pred.drop('Churn',\r\n                              axis=1)  # Eliminamos la columna objetivo (vacía) si la hubiera en nuestro df con los datos a predecir\r\n        #X_pred = scaler.transform(X_pred)\r\n        # Realizamos predicción\r\n        resultado = (model.predict(X_pred) > 0.5).astype(\"int32\")\r\n        # Unimos en un dataframe los datos a predecir con su predicción\r\n        df_pred['PREDICCIÓN'] = pd.DataFrame(resultado)\r\n        print(df_pred)\r\n\r\n\r\nprueba_binaria = ClasificacionBinaria()\r\nX_train, X_val, X_test, y_train, y_val, y_test = prueba_binaria.dividir_df(prueba_binaria.df)\r\nmodelo_creado = prueba_binaria.crearModeloBinario(X_val,y_val, X_train, X_test, y_train, y_test)\r\nprueba_binaria.evaluar_modelo(X_test, y_test, modelo_creado)\r\nprueba_binaria.guardar_modelo(modelo_creado,\"modelo_TELCO\")\r\n\r\nprueba_binaria.prediccion(modelo_creado)\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/models/clasificacion_binaria.py b/models/clasificacion_binaria.py
+--- a/models/clasificacion_binaria.py	(revision 60a5e8eab5cc7938ffea6b2751a1db79e43feb8f)
++++ b/models/clasificacion_binaria.py	(date 1781483337756)
+@@ -18,6 +18,8 @@
+ 
+     def __init__(self):
+         self.df = pd.read_csv('C:/Users/fab_t/Downloads/Excel_telco_churn_reducido_Copy.csv')
++        # carpeta_datos = Path.cwd().parent / 'eda' / 'src' / 'eda' /'processed' # ubicación de la carpeta
++        # self.df = pd.read_csv(carpeta_datos / 'telco_churn_reducido.csv')
+ 
+ 
+     def dividir_df(self, df):
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"ALL\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d2d5d9ac-e510-49ff-8f26-04937e5091b4\" name=\"Changes\" comment=\"feature:ya guarda los.csv en la carpeta de &quot;data/processed&quot;\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/vcs.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/data/processed/test_binario.csv\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/data/processed/test_binario.csv\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/data/processed/train_binario.csv\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/data/processed/train_binario.csv\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/models/clasificacion_binaria.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/models/clasificacion_binaria.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/models/modelo_TELCO.keras\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/models/modelo_TELCO.keras\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/ProyectoB_SPAC$procesador_eda.coverage\" NAME=\"procesador_eda Coverage Results\" MODIFIED=\"1781476580045\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/eda\" />\r\n    <SUITE FILE_PATH=\"coverage/ProyectoB_SPAC$download_data.coverage\" NAME=\"download_data Coverage Results\" MODIFIED=\"1781475535640\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/data/raw\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$prediccion_nuevosDatos.coverage\" NAME=\"prediccion_nuevosDatos Coverage Results\" MODIFIED=\"1781461682573\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/models\" />\r\n    <SUITE FILE_PATH=\"coverage/ProyectoB_SPAC$download_data.coverage\" NAME=\"download_data Coverage Results\" MODIFIED=\"1781409571937\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/data/raw\" />\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$clasificacion_binaria.coverage\" NAME=\"clasificacion_binaria Coverage Results\" MODIFIED=\"1781479796112\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/models\" />\r\n    <SUITE FILE_PATH=\"coverage/ProyectoB_SPAC$procesador_eda.coverage\" NAME=\"procesador_eda Coverage Results\" MODIFIED=\"1781410174612\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/eda\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 60a5e8eab5cc7938ffea6b2751a1db79e43feb8f)
++++ b/.idea/workspace.xml	(date 1781483761030)
+@@ -4,12 +4,8 @@
+     <option name="autoReloadType" value="ALL" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="feature:ya guarda los.csv en la carpeta de &quot;data/processed&quot;">
+-      <change beforePath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++    <list default="true" id="5bab9200-7ab2-40a8-8d20-fab7c77378b5" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/data/processed/test_binario.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/test_binario.csv" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/data/processed/train_binario.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/train_binario.csv" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/models/clasificacion_binaria.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/clasificacion_binaria.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/models/modelo_TELCO.keras" beforeDir="false" afterPath="$PROJECT_DIR$/models/modelo_TELCO.keras" afterDir="false" />
+     </list>
+@@ -18,28 +14,91 @@
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-
++  <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="master" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-
+-    </task>
+-    <option name="localTasksCounter" value="4" />
+-    <servers />
++  <component name="McpProjectServerCommands">
++    <commands />
++    <urls />
+   </component>
+-  <component name="VcsManagerConfiguration">
+-    <MESSAGE value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
++  <component name="NextEditCompletionFeaturesState">
++    <decayedCancelled>
++      <entry key="MS100" value="3.3412580335489033E-78" />
++      <entry key="MS500" value="3.197481218832179E-16" />
++      <entry key="S2" value="1.4708465953385398E-4" />
++      <entry key="S5" value="0.046122813921350335" />
++      <entry key="S10" value="0.405422085580038" />
++      <entry key="S30" value="2.3503188135901922" />
++      <entry key="S60" value="4.273067757037375" />
++      <entry key="M2" value="6.468876680780656" />
++      <entry key="M5" value="9.062179186649612" />
++      <entry key="M10" value="10.361870771743952" />
++      <entry key="M15" value="10.865477266150913" />
++      <entry key="M30" value="11.410154506171757" />
++      <entry key="H1" value="11.699158598973142" />
++      <entry key="H2" value="11.848064027940039" />
++      <entry key="H4" value="11.923648645679522" />
++      <entry key="D1" value="11.987221137746745" />
++      <entry key="W1" value="11.998173129571933" />
++    </decayedCancelled>
++    <decayedSelected>
++      <entry key="MS100" value="1.0" />
++      <entry key="MS500" value="1.0" />
++      <entry key="S2" value="1.0" />
++      <entry key="S5" value="1.0" />
++      <entry key="S10" value="1.0" />
++      <entry key="S30" value="1.0" />
++      <entry key="S60" value="1.0" />
++      <entry key="M2" value="1.0" />
++      <entry key="M5" value="1.0" />
++      <entry key="M10" value="1.0" />
++      <entry key="M15" value="1.0" />
++      <entry key="M30" value="1.0" />
++      <entry key="H1" value="1.0" />
++      <entry key="H2" value="1.0" />
++      <entry key="H4" value="1.0" />
++      <entry key="D1" value="1.0" />
++      <entry key="W1" value="1.0" />
++    </decayedSelected>
++    <decayedShown>
++      <entry key="MS100" value="9.9019480448245E-4" />
++      <entry key="MS500" value="0.2506941089752697" />
++      <entry key="S2" value="0.7077436508129147" />
++      <entry key="S5" value="0.9168469908630011" />
++      <entry key="S10" value="1.3382445849246019" />
++      <entry key="S30" value="3.3210629345784155" />
++      <entry key="S60" value="5.244217294880634" />
++      <entry key="M2" value="7.442392574896292" />
++      <entry key="M5" value="10.045826042280003" />
++      <entry key="M10" value="11.352337389916345" />
++      <entry key="M15" value="11.858782370655723" />
++      <entry key="M30" value="12.406626962716066" />
++      <entry key="H1" value="12.697347744147011" />
++      <entry key="H2" value="12.847146563105406" />
++      <entry key="H4" value="12.923186869980729" />
++      <entry key="D1" value="12.987143749544684" />
++      <entry key="W1" value="12.99816206365388" />
++    </decayedShown>
+   </component>
+-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781476580045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
+-    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781475535640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Python.clasificacion_binaria.executor": "Run",
++    "git-widget-placeholder": "ModeloBinarioDatosOficiales",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)"
++  }
++}]]></component>
++  <component name="TaskManager">
++    <servers />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/git_Clones$prediccion_nuevosDatos.coverage" NAME="prediccion_nuevosDatos Coverage Results" MODIFIED="1781461682573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+-    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781409571937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
+-    <SUITE FILE_PATH="coverage/git_Clones$clasificacion_binaria.coverage" NAME="clasificacion_binaria Coverage Results" MODIFIED="1781479796112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+-    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781410174612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
++    <SUITE FILE_PATH="coverage/git_Clones$clasificacion_binaria.coverage" NAME="clasificacion_binaria Coverage Results" MODIFIED="1781483369933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+   </component>
+ </project>
+\ No newline at end of file
