@@ -1,4 +1,5 @@
 # Importamos las libreria.
+import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -19,7 +20,8 @@ from sklearn.metrics import classification_report,confusion_matrix
 # 1. Creamos la clase para nuestro Modelo.
 class ModeloRegresion:
     def __init__(self): # Constructor de la clase.
-        self.df = pd.read_csv('C:/Users/sharo/Documents/pys examen/telco_churn_reducido.csv') # Llamamos el csv limpio
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        self.df = pd.read_csv(os.path.join(base_dir, '..', 'eda', 'src', 'eda', 'processed', 'telco_churn_reducido_modelo.csv')) # Llamamos el csv limpio
 
 #-----------------------------------Creamos los Metodos-----------------------------------------------------------#
 
@@ -35,25 +37,32 @@ class ModeloRegresion:
         print('Resultado de y_test.shape', y.shape)
         return X, y, X_train, X_test, y_train, y_test # Le indicamos que nos devuelva los valores
 
+# -------------------------------------------------------------------------------------------------------------#
+
+# 3. Escalado.
+    def escalado(self, X_train, X_test):
+            self.scaler = MinMaxScaler()
+            self.X_train = self.scaler.fit_transform(X_train)
+            self.X_test = self.scaler.transform(X_test)
+
+            print('Escalado de X_train.shape', X_train.shape)
+            print('Escalado de X_test.shape', X_test.shape)
+
 #------------------------------------------------------------------------------------------------------------#
 
-# 3. Creacion del Modelo.
+# 4. Creacion del Modelo.
     def creacion_model(self, X, y, X_train, X_test, y_train, y_test):
         self.model = Sequential()
         num_neuronas = X_train.shape[1]  # Número de neuronas según tamaño del DF
-        self.model.add(Dense(units=num_neuronas, activation='relu'))
-        self.model.add(Dropout(0.3))  # la mitad de las neuronas en cada epoch para esta capa
+        self.model.add(Dense(num_neuronas, activation='relu'))
+        self.model.add(Dense(num_neuronas, activation='relu'))
+        self.model.add(Dense(num_neuronas, activation='relu'))
+        self.model.add(Dense(num_neuronas, activation='relu'))
+        self.model.add(Dense(1))  # Indicar tantas neuronas de salida como variables a predecir, en este caso solo 1 variable "Churn"
 
-        self.model.add(Dense(units=int(np.round(num_neuronas // 2)),
-                        activation='relu'))  # Agregado para que de un número entero
-        self.model.add(Dropout(0.3))  # la mitad de las neuronas en cada epoch para esta capa
+        self.model.compile(optimizer='adam', loss='mse')
 
-        self.model.add(Dense(units=1, activation='sigmoid'))  # Neuronas de salida igual a variables a predecir, en este caso solo 1 variable "Churn
-
-        # Usamos el 'binary_crossentropy' para poder realizar la probabilidad de churn.
-        self.model.compile(loss='binary_crossentropy', optimizer='adam') # Utilizamos adam para empezar a dar saltos grandes y saltos pequeños antes de llegar al 0.
-
-        early_stop = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=30)
+        early_stop = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=25)
 
         self.model.fit(x=X_train,
                   y=y_train,
@@ -67,7 +76,7 @@ class ModeloRegresion:
 
 #---------------------------------------------------------------------------------------------------------------------#
 
-# 4. Creacion para predecir el nivel de riesgo (risk_score) (Consultado con Claude).
+# 5. Creacion para predecir el nivel de riesgo (risk_score) (Consultado con Claude).
     def predecir_riesgo(self, X_test): # Creamos el metodo de predecir el riesgo y como parametro agregamos el X.test
             scores = self.model.predict(X_test)
 
@@ -90,7 +99,7 @@ class ModeloRegresion:
 
 #---------------------------------------------------------------------------------------------------------------------#
 
-# 5. Predicción sobre el conjunto de Test.
+# 6. Predicción sobre el conjunto de Test.
     def prediccion(self, X_test, y_test):
         predictions = self.model.predict(X_test)
 
@@ -101,7 +110,6 @@ class ModeloRegresion:
 # el valor predecido)
         print('Varianza', explained_variance_score(y_test,predictions))
         print('Error absoluto medio', mean_absolute_error(y_test,predictions)/self.df['Churn'].mean())
-        print('Error absoluto para mediana', mean_absolute_error(y_test,predictions)/self.df['Churn'].median())
 
 # Visualizamos nuestra prediccion
         plt.scatter(y_test, predictions)
@@ -119,7 +127,7 @@ class ModeloRegresion:
 
 #----------------------------------------------------------------------------------------------------------#
 
-# 6. Valores de accurancy y blabla.
+# 7. Valores de accurancy y blabla.
     def prediccion_acc(self, X_test, y_test):
         predictions = self.model.predict(X_test)
 
@@ -134,18 +142,19 @@ class ModeloRegresion:
 
 #------------------------------------------------------------------------------------------------------------#
 
-# 7. Guardar modelo.
+# 8. Guardar modelo.
     def guardar_modelo(self):
         self.model.save('modelo_risk_score.keras') # Lo guardamos .keras
         print('Se ha guardado el modelo_risk_score.keras con éxito!')
 
 #-----------------------------------------------------------------------------------------------------------#
 
-modelo = ModeloRegresion() # Llamamos la clase del modelo
-X, y, X_train, X_test, y_train, y_test = modelo.entrena_prueba(modelo.df) # Dividmos los datos en entrenamiento y prueba
-modelo.creacion_model(X, y, X_train, X_test, y_train, y_test)  # Entrenamos el modelo y visualizamos su val_loss
-modelo.prediccion(X_test, y_test) # Metricas de error
-modelo.prediccion_acc(X_test, y_test) # Llamamos el metodo de accurancy
-resultados = modelo.predecir_riesgo(X_test) # Llamamos el metodo del nivel de riesgo
-print(resultados.head(10)) # Imprime los resultados de riesgo
-modelo.guardar_modelo() # Guardamos el modelo
+modelo = ModeloRegresion()
+X, y, X_train, X_test, y_train, y_test = modelo.entrena_prueba(modelo.df)
+modelo.escalado(X_train, X_test) # Escala y guarda en modelo.X_train / modelo.X_test
+modelo.creacion_model(X, y, modelo.X_train, modelo.X_test, y_train, y_test) # Entrena con datos escalados
+modelo.prediccion(modelo.X_test, y_test) # Métricas con datos escalados
+modelo.prediccion_acc(modelo.X_test, y_test) # Accuracy con datos escalados
+resultados = modelo.predecir_riesgo(modelo.X_test) # Riesgo con datos escalados
+print(resultados.head(10))
+modelo.guardar_modelo()
