@@ -1,0 +1,173 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"ALL\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d2d5d9ac-e510-49ff-8f26-04937e5091b4\" name=\"Changes\" comment=\"Actualizacion clase EDA.&#10;Creacion de graficos EDA.\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"INCOMING_COMMITS_CHECK_STRATEGY\" value=\"FETCH\" />\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"API_ModeloBinario\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/Fa03/ProyectoB_SPAC.git&quot;,\r\n    &quot;accountId&quot;: &quot;f9e0d941-2fdf-4965-b758-2cde3d41de65&quot;\r\n  }\r\n}</component>\r\n  <component name=\"McpProjectServerCommands\">\r\n    <commands />\r\n    <urls />\r\n  </component>\r\n  <component name=\"NextEditCompletionFeaturesState\">\r\n    <decayedCancelled>\r\n      <entry key=\"MS100\" value=\"2.0073045686949857\" />\r\n      <entry key=\"MS500\" value=\"5.192294850004508\" />\r\n      <entry key=\"S2\" value=\"10.495370575994516\" />\r\n      <entry key=\"S5\" value=\"14.852482515018005\" />\r\n      <entry key=\"S10\" value=\"17.68364477260443\" />\r\n      <entry key=\"S30\" value=\"20.344729418548102\" />\r\n      <entry key=\"S60\" value=\"21.142527147594972\" />\r\n      <entry key=\"M2\" value=\"21.625650346657636\" />\r\n      <entry key=\"M5\" value=\"22.834653458037312\" />\r\n      <entry key=\"M10\" value=\"27.23287960421655\" />\r\n      <entry key=\"M15\" value=\"32.49598041788677\" />\r\n      <entry key=\"M30\" value=\"44.00643983917448\" />\r\n      <entry key=\"H1\" value=\"54.349078583405415\" />\r\n      <entry key=\"H2\" value=\"61.359839779756406\" />\r\n      <entry key=\"H4\" value=\"65.45339173723416\" />\r\n      <entry key=\"D1\" value=\"69.20860980209392\" />\r\n      <entry key=\"W1\" value=\"69.88609106690323\" />\r\n    </decayedCancelled>\r\n    <decayedSelected>\r\n      <entry key=\"MS100\" value=\"0.0\" />\r\n      <entry key=\"MS500\" value=\"0.0\" />\r\n      <entry key=\"S2\" value=\"0.0\" />\r\n      <entry key=\"S5\" value=\"4.0506578092044145E-160\" />\r\n      <entry key=\"S10\" value=\"2.0256723870623094E-80\" />\r\n      <entry key=\"S30\" value=\"3.227848454428242E-27\" />\r\n      <entry key=\"S60\" value=\"7.468787914379598E-14\" />\r\n      <entry key=\"M2\" value=\"3.784847543257957E-7\" />\r\n      <entry key=\"M5\" value=\"0.004069764559883531\" />\r\n      <entry key=\"M10\" value=\"0.0901401115025501\" />\r\n      <entry key=\"M15\" value=\"0.25324282456512565\" />\r\n      <entry key=\"M30\" value=\"0.7116084565030321\" />\r\n      <entry key=\"H1\" value=\"1.1929573802534994\" />\r\n      <entry key=\"H2\" value=\"1.5446312142872711\" />\r\n      <entry key=\"H4\" value=\"1.757627089401952\" />\r\n      <entry key=\"D1\" value=\"1.9573989925178237\" />\r\n      <entry key=\"W1\" value=\"1.993857831016016\" />\r\n    </decayedSelected>\r\n    <decayedShown>\r\n      <entry key=\"MS100\" value=\"1.9281925559846922\" />\r\n      <entry key=\"MS500\" value=\"5.151168319723915\" />\r\n      <entry key=\"S2\" value=\"10.47498787930002\" />\r\n      <entry key=\"S5\" value=\"14.84101033709\" />\r\n      <entry key=\"S10\" value=\"17.67683076557955\" />\r\n      <entry key=\"S30\" value=\"20.342120514266114\" />\r\n      <entry key=\"S60\" value=\"21.14116144790383\" />\r\n      <entry key=\"M2\" value=\"21.624694492974047\" />\r\n      <entry key=\"M5\" value=\"22.837017818140687\" />\r\n      <entry key=\"M10\" value=\"27.318345068616253\" />\r\n      <entry key=\"M15\" value=\"32.74195452304632\" />\r\n      <entry key=\"M30\" value=\"44.70882304812076\" />\r\n      <entry key=\"H1\" value=\"55.5345394200532\" />\r\n      <entry key=\"H2\" value=\"62.89967605085858\" />\r\n      <entry key=\"H4\" value=\"67.20830525840945\" />\r\n      <entry key=\"D1\" value=\"71.16550719675044\" />\r\n      <entry key=\"W1\" value=\"71.87987595576753\" />\r\n    </decayedShown>\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Python.download_data.executor\": \"Run\",\r\n    \"Python.procesador_eda.executor\": \"Run\",\r\n    \"git-widget-placeholder\": \"API__ModeloBinario\",\r\n    \"git.auto.fetch.suggestion.counter\": \"1\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\"\r\n  }\r\n}]]></component>\r\n  <component name=\"TaskManager\">\r\n    <task id=\"LOCAL-00001\" summary=\"Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1781476891481</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1781476891481</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1781476968450</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1781476968450</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1781477192309</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1781477192309</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos\" />\r\n    <MESSAGE value=\"Actualizacion clase EDA.&#10;Creacion de graficos EDA.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Actualizacion clase EDA.&#10;Creacion de graficos EDA.\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$download_data.coverage\" NAME=\"download_data Coverage Results\" MODIFIED=\"1781500960184\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/data/raw\" />\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$procesador_eda.coverage\" NAME=\"procesador_eda Coverage Results\" MODIFIED=\"1781500440431\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/eda\" />\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$api.coverage\" NAME=\"api Coverage Results\" MODIFIED=\"1781497574401\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/api\" />\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$Modelo_Regresion.coverage\" NAME=\"Modelo_Regresion Coverage Results\" MODIFIED=\"1781500271586\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/models\" />\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$clasificacion_binaria.coverage\" NAME=\"clasificacion_binaria Coverage Results\" MODIFIED=\"1781501254337\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/models\" />\r\n    <SUITE FILE_PATH=\"coverage/ProyectoB_SPAC$download_data.coverage\" NAME=\"download_data Coverage Results\" MODIFIED=\"1781475535640\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/data/raw\" />\r\n    <SUITE FILE_PATH=\"coverage/ProyectoB_SPAC$procesador_eda.coverage\" NAME=\"procesador_eda Coverage Results\" MODIFIED=\"1781481751581\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/eda\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 2e5233bf6e06f1c59c3cde9fda8b31fc4ae7ab14)
++++ b/.idea/workspace.xml	(date 1781506927708)
+@@ -4,7 +4,7 @@
+     <option name="autoReloadType" value="ALL" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Creacion de graficos EDA.">
++    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="SRC agregado">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -21,73 +21,73 @@
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GithubPullRequestsUISettings">{
+-  &quot;selectedUrlAndAccountId&quot;: {
+-    &quot;url&quot;: &quot;https://github.com/Fa03/ProyectoB_SPAC.git&quot;,
+-    &quot;accountId&quot;: &quot;f9e0d941-2fdf-4965-b758-2cde3d41de65&quot;
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/Fa03/ProyectoB_SPAC.git",
++    "accountId": "960b1b59-51f6-4b5c-b849-43e9bb452c36"
+   }
+-}</component>
++}]]></component>
+   <component name="McpProjectServerCommands">
+     <commands />
+     <urls />
+   </component>
+   <component name="NextEditCompletionFeaturesState">
+     <decayedCancelled>
+-      <entry key="MS100" value="2.0073045686949857" />
+-      <entry key="MS500" value="5.192294850004508" />
+-      <entry key="S2" value="10.495370575994516" />
+-      <entry key="S5" value="14.852482515018005" />
+-      <entry key="S10" value="17.68364477260443" />
+-      <entry key="S30" value="20.344729418548102" />
+-      <entry key="S60" value="21.142527147594972" />
+-      <entry key="M2" value="21.625650346657636" />
+-      <entry key="M5" value="22.834653458037312" />
+-      <entry key="M10" value="27.23287960421655" />
+-      <entry key="M15" value="32.49598041788677" />
+-      <entry key="M30" value="44.00643983917448" />
+-      <entry key="H1" value="54.349078583405415" />
+-      <entry key="H2" value="61.359839779756406" />
+-      <entry key="H4" value="65.45339173723416" />
+-      <entry key="D1" value="69.20860980209392" />
+-      <entry key="W1" value="69.88609106690323" />
++      <entry key="MS100" value="1.1435881378073327" />
++      <entry key="MS500" value="1.7567194916016917" />
++      <entry key="S2" value="2.7679028313085157" />
++      <entry key="S5" value="3.385008573868364" />
++      <entry key="S10" value="3.667013080288718" />
++      <entry key="S30" value="3.882778284076879" />
++      <entry key="S60" value="3.9630366357051834" />
++      <entry key="M2" value="4.675229619472958" />
++      <entry key="M5" value="9.794574956621076" />
++      <entry key="M10" value="17.726720720571098" />
++      <entry key="M15" value="24.58357007655409" />
++      <entry key="M30" value="39.025086236862485" />
++      <entry key="H1" value="52.48720266279527" />
++      <entry key="H2" value="61.95653641001443" />
++      <entry key="H4" value="67.61234807288596" />
++      <entry key="D1" value="72.88029935043795" />
++      <entry key="W1" value="73.83863396932537" />
+     </decayedCancelled>
+     <decayedSelected>
+       <entry key="MS100" value="0.0" />
+       <entry key="MS500" value="0.0" />
+       <entry key="S2" value="0.0" />
+-      <entry key="S5" value="4.0506578092044145E-160" />
+-      <entry key="S10" value="2.0256723870623094E-80" />
+-      <entry key="S30" value="3.227848454428242E-27" />
+-      <entry key="S60" value="7.468787914379598E-14" />
+-      <entry key="M2" value="3.784847543257957E-7" />
+-      <entry key="M5" value="0.004069764559883531" />
+-      <entry key="M10" value="0.0901401115025501" />
+-      <entry key="M15" value="0.25324282456512565" />
+-      <entry key="M30" value="0.7116084565030321" />
+-      <entry key="H1" value="1.1929573802534994" />
+-      <entry key="H2" value="1.5446312142872711" />
+-      <entry key="H4" value="1.757627089401952" />
+-      <entry key="D1" value="1.9573989925178237" />
+-      <entry key="W1" value="1.993857831016016" />
++      <entry key="S5" value="8.455954596779367E-196" />
++      <entry key="S10" value="2.926764313846893E-98" />
++      <entry key="S30" value="3.6491018432705126E-33" />
++      <entry key="S60" value="7.941207628461673E-17" />
++      <entry key="M2" value="1.2341461773449892E-8" />
++      <entry key="M5" value="0.001034895671111207" />
++      <entry key="M10" value="0.04545500745582302" />
++      <entry key="M15" value="0.16044009497794048" />
++      <entry key="M30" value="0.5664074815764237" />
++      <entry key="H1" value="1.0643117791557437" />
++      <entry key="H2" value="1.4589713951378562" />
++      <entry key="H4" value="1.7081960867494237" />
++      <entry key="D1" value="1.9481147053447045" />
++      <entry key="W1" value="1.992504045441657" />
+     </decayedSelected>
+     <decayedShown>
+-      <entry key="MS100" value="1.9281925559846922" />
+-      <entry key="MS500" value="5.151168319723915" />
+-      <entry key="S2" value="10.47498787930002" />
+-      <entry key="S5" value="14.84101033709" />
+-      <entry key="S10" value="17.67683076557955" />
+-      <entry key="S30" value="20.342120514266114" />
+-      <entry key="S60" value="21.14116144790383" />
+-      <entry key="M2" value="21.624694492974047" />
+-      <entry key="M5" value="22.837017818140687" />
+-      <entry key="M10" value="27.318345068616253" />
+-      <entry key="M15" value="32.74195452304632" />
+-      <entry key="M30" value="44.70882304812076" />
+-      <entry key="H1" value="55.5345394200532" />
+-      <entry key="H2" value="62.89967605085858" />
+-      <entry key="H4" value="67.20830525840945" />
+-      <entry key="D1" value="71.16550719675044" />
+-      <entry key="W1" value="71.87987595576753" />
++      <entry key="MS100" value="1.0782197479139626" />
++      <entry key="MS500" value="1.7390692921402713" />
++      <entry key="S2" value="2.761601901979447" />
++      <entry key="S5" value="3.3820166869786665" />
++      <entry key="S10" value="3.665408693690567" />
++      <entry key="S30" value="3.882215754099359" />
++      <entry key="S60" value="3.9627502000919077" />
++      <entry key="M2" value="4.675055009549163" />
++      <entry key="M5" value="9.795118579590232" />
++      <entry key="M10" value="17.7697895986015" />
++      <entry key="M15" value="24.739385891939833" />
++      <entry key="M30" value="39.584141224514475" />
++      <entry key="H1" value="53.54482149479716" />
++      <entry key="H2" value="63.410976366174864" />
++      <entry key="H4" value="69.31790570371398" />
++      <entry key="D1" value="74.82791463652656" />
++      <entry key="W1" value="75.83106509348957" />
+     </decayedShown>
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+@@ -127,7 +127,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1781477192309</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="SRC agregado">
++      <option name="closed" value="true" />
++      <created>1781505884827</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1781505884827</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -144,7 +152,8 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
+     <MESSAGE value="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
+-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
++    <MESSAGE value="SRC agregado" />
++    <option name="LAST_COMMIT_MESSAGE" value="SRC agregado" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/git_Clones$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781500960184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
