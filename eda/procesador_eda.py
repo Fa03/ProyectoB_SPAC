@@ -1,11 +1,8 @@
 from pathlib import Path
 import pandas as pd
 import numpy as np
-
-
 import seaborn as sns
 import matplotlib.pyplot as plt
-import os  # Librería para manejar rutas de archivos.
 from sklearn.preprocessing import OneHotEncoder
 
 
@@ -53,7 +50,6 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
 
     # -------------------------------------------------------------------------------------------------------------------#
-
     # 2. Método con el que podremos limpiar textos ya que tenemos varias variables STR
     #Dicho metodo nos permite evaluar las variables que contengan texto y les realiza una limpieza de formato
     def limpiar_texto(self):
@@ -75,7 +71,6 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
 
     # -------------------------------------------------------------------------------------------------------------------#
-
     # 3. Método para verificar, reportar y limpiar datos nulos
     # Este metodo revisa las variables y verifica si alguna fila esta vacia, el metodo nos genera alerta si se encuentra algun registro faltante
     def gestionar_datos_nulos(self):
@@ -99,8 +94,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
 
     # -------------------------------------------------------------------------------------------------------------------#
-
-    #4 Gestionar datos duplicados
+    #4. Metodo para gestionar datos duplicados
     #Este metodo nos permite determinar si existen valores duplicados.
     #Realiza 2 acciones:
     #1- Si encuentra valores nulos los elimina
@@ -118,23 +112,40 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
 
     # -------------------------------------------------------------------------------------------------------------------#
-
     #5 Reemplazar Yes/No de la variable objetivo Churn por 1-0
     #Dicho metodo nos permite identificar la variable objetivo "Churn"y aplicacion un ciclo si encuentra que sea "Si" lo cambio por "1", pero si encuentra que sea "no" lo cambio por "0"
     # En dicho metodo se utiliza pandas.map() para realizar el mapeo de Si/No
     def transformar_target_churn(self):
+        """
+        Transforma la variable objetivo 'Churn' de formato de texto ('Yes'/'No')
+        a formato numérico binario (1/0) y muestra el conteo final de clases.
+        """
+        import pandas as pd
+
         print("--- Transformando Variable Objetivo (Churn) ---")
 
-        #Antes de realizar el cambio de valores de la variable verifica si existe en el DF
+        # Antes de realizar el cambio de valores de la variable verifica si existe en el DF
         if 'Churn' not in self.__DF_data.columns:
             print("La columna 'Churn' no se encuentra en el dataset o ya fue transformada.")
             return
 
-        #Aplicamos el mapeo de 'Yes'/'No' a 1/0
+        # Aplicamos el mapeo de 'Yes'/'No' a 1/0
         # Usamos .map() que es la forma más rápida y estándar en Pandas
         self.__DF_data['Churn'] = self.__DF_data['Churn'].map({'Yes': 1, 'No': 0})
 
         print("✅ Transformación de 'Churn' completada con éxito (Yes -> 1, No -> 0).")
+
+        # 📊 NUEVA SECCIÓN: Conteo de 0 y 1 al final de la transformación
+        print("\n--- Conteo de clases en la variable 'Churn' ---")
+        conteos = self.__DF_data['Churn'].value_counts()
+
+        # Iteramos sobre los resultados para mostrarlos de forma limpia en consola
+        for valor, cantidad in conteos.items():
+            # Mostramos el significado original junto al número binario
+            significado = "Yes (Abandono)" if valor == 1 else "No (Permanencia)"
+            print(f"Clase [{valor}] -> {significado}: {cantidad} registros")
+        print("\n")
+        print("=" * 60 + "\n")
 
 
     # -------------------------------------------------------------------------------------------------------------------#
@@ -316,8 +327,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
     #9 Generar dataset reducido con la variables fuertemente correlacionadas
     #El siguiente metodo nos permite generar 1 dataset limpio con las variables fuertemente correlacionadas y variables predefinadas para el modelo IA
     def generar_dataset_reducido(self, target='Churn', umbral=0.25):
-        from pathlib import Path  # Nos aseguramos de tener Path disponible
-        import pandas as pd
+
 
         print(f"--- Generando dataset reducido basado en correlación (Umbral: {umbral}) ---")
 
@@ -393,11 +403,13 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
 
     # -------------------------------------------------------------------------------------------------------------------#
+    #10 Generar dataset nuevo para enseñarle al modelo
     def generar_dataset_final_modelo(self, target='Churn', umbral=0.25):
         """
         Crea el dataset específico para el modelo eliminando variables de internet,
         métodos de pago y cargos totales. Almacena el resultado en self.__DF_reducido_modelo.
         """
+
 
         print(f"\n--- Generando dataset específico para el modelo (Umbral: {umbral}) ---")
 
@@ -464,9 +476,65 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         print("=" * 60 + "\n")
 
         return self.__DF_reducido_modelo
+
+
     # -------------------------------------------------------------------------------------------------------------------#
 
-    #10 Generar grafico con respecto al servicio de internet
+    #11 Grafico de correlaciones
+    def eda_matriz_correlacion(self):
+            """
+            Genera la matriz de correlación incluyendo las variables numéricas
+            y las dummies de One-Hot Encoding (aunque estén en formato float).
+            """
+
+            print("\n[EDA] Generando Matriz de Correlación...")
+
+            # 1. Validación de existencia del dataset reducido
+            if not hasattr(self, '_ProcesadorEDA__DF_reducido') or self.__DF_reducido is None:
+                print("❌ ERROR: El dataset reducido no existe en memoria. No se puede calcular la matriz.")
+                return None
+
+            # 2. Seleccionar columnas numéricas (detecta automáticamente int64 y float64)
+            df_numerico = self.__DF_reducido.select_dtypes(include=['number'])
+
+            if df_numerico.empty:
+                print("❌ No hay columnas numéricas o dummies para generar la matriz de correlación.")
+                return None
+
+            # 3. Calcular la matriz de correlación de Pearson
+            matriz_correlacion = df_numerico.corr()
+
+            # 4. Configuración avanzada del Heatmap para que sea legible con dummies
+            sns.set_theme(style="white")
+            plt.figure(figsize=(12, 10))
+
+            # Creamos el mapa de calor
+            # fmt=".2f" asegura que la correlación muestre solo 2 decimales (ej: 0.25)
+            sns.heatmap(
+                matriz_correlacion,
+                annot=True,
+                cmap='coolwarm',
+                fmt=".2f",
+                linewidths=0.75,
+                square=True,
+                cbar_kws={"shrink": 0.8}  # Achica la barra de color lateral para que no deforme el diseño
+            )
+
+            # Personalización de títulos
+            plt.title('Matriz de Correlación (Variables Numéricas y Dummies)', fontsize=14, pad=15)
+            plt.xticks(rotation=45, ha='right')  # Rota los nombres en el eje X para que no se encima el texto
+            plt.yticks(rotation=0)
+
+            plt.tight_layout()
+            plt.show()
+
+            print("[EDA] Matriz de correlación desplegada con éxito.")
+            return matriz_correlacion
+
+    # -------------------------------------------------------------------------------------------------------------------#
+
+
+    #12 Generar grafico con respecto al servicio de internet
     def graficar_boxplot_internet_churn(self):
         """
         Genera un gráfico de barras para analizar la tasa de Churn
@@ -536,7 +604,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
 
     # -------------------------------------------------------------------------------------------------------------------#
-    #11 Generar grafico
+    #13 Generar grafico
     def graficar_boxplot_genero_cargos_churn(self):
         """
         Genera un diagrama de caja (Boxplot) para analizar la relación entre
@@ -597,7 +665,61 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
 
     # -------------------------------------------------------------------------------------------------------------------#
-    # 12. Método para realizar la limpieza general del dataset
+    #14 Grafico para conocer la distribucion de las variable Churn
+    def graficar_distribucion_churn(self):
+        """
+        Genera un gráfico de barras para visualizar de forma clara
+        la distribución y el desbalanceo de la variable objetivo 'Churn'.
+        """
+
+        print("\n[EDA] Generando gráfico de distribución para la variable 'Churn'...")
+
+        try:
+            # 1. Validar que la columna exista en el dataset
+            if 'Churn' not in self.__DF_data.columns:
+                raise KeyError("La columna 'Churn' no se encuentra en el dataset. ¿Ya la transformaste?")
+
+            # 2. Configuración del estilo visual de la gráfica
+            sns.set_theme(style="whitegrid")
+            fig, ax = plt.subplots(figsize=(7, 5))
+
+            # 3. Creación del gráfico de barras de conteo
+            sns.countplot(
+                data=self.__DF_data,
+                x='Churn',
+                hue='Churn',
+                palette='Set2',
+                legend=False,  # <-- ¡Aquí está la coma corregida! ,
+                ax=ax  # <-- Alineado correctamente como argumento
+            )
+
+            # 4. Personalización del gráfico (Títulos, etiquetas y textos)
+            ax.set_title('Distribución Absoluta de la Variable Objetivo (Churn)', fontsize=14, pad=15)
+            ax.set_xlabel('Estado de Churn', fontsize=12)
+            ax.set_ylabel('Cantidad de Clientes', fontsize=12)
+
+            # Fijamos primero las posiciones de los tics antes de nombrarlos
+            ax.set_xticks([0, 1])
+            ax.set_xticklabels(['No (Permanencia)', 'Yes (Abandono)'])
+
+            # 5. Dinamismo: Agregar las etiquetas de conteo numérico sobre cada barra
+            for container in ax.containers:
+                ax.bar_label(container, fmt='%d', padding=3, fontsize=11)
+
+            # 6. Despliegue de la ventana flotante
+            plt.tight_layout()
+            plt.show()
+
+            print("[EDA] Gráfico de distribución generado con éxito.")
+
+        except KeyError as e:
+            print(f"ERROR al graficar: {e}")
+        except Exception as e:
+            print(f"Ocurrió un error inesperado al estructurar la gráfica: {e}")
+
+
+    # -------------------------------------------------------------------------------------------------------------------#
+    # 15. Método para realizar la limpieza general del dataset
     #El metodo ejecutar_eda nos permite ejecutar todos los metodos que se crearon anteriormente con cierto formato para interpretarlo.
     def ejecutar_eda(self):
         print("=" * 120)
@@ -607,57 +729,73 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         print("\n")
         print("=" * 60)
         print("\n")
+    #Metodo #1
         print("#1 Informacion del dataset ""WA_Fn-UseC_-Telco-Customer-Churn.csv"", datos estadistico")
         print("\n")
         self.informacion_data()
         print("\n")
         print("=" * 60)
+    #Metodo #2
         print("#2 Limpieza texto de las variables STR")
         self.limpiar_texto()
         print("\n")
         print("=" * 60)
+    #Metodo #3
         print("#3 Verificacion datos nulos")
         self.gestionar_datos_nulos()
         print("\n")
         print("=" * 60)
+    #Metodo #4
         print("#4 Validacion datos duplicados")
         self.gestionar_datos_duplicados()
         print("\n")
         print("=" * 60)
+    # Metodo #5
         print("5 Trasnformar target Churn")
         self.transformar_target_churn()
         print("\n")
         print("=" * 60)
+    # Metodo #6
         print("#6 Aplicar Onehotencoding al dataset")
         self.aplicar_one_hot_encoding()
         print("\n")
         print("=" * 60)
+    # Metodo #7
         print("#7 Calcular correlaciones")
         self.obtener_correlaciones_fuertes()
         print("\n")
         print("=" * 60)
+    # Metodo #8
         print("#8 Generar Grafico de correlaciones")
         self.grafico_correlaciones_churn()
         print("\n")
         print("=" * 60)
+    #Metodo #9
         print("#9 Generar dataset con las principales correlaciones")
         self.generar_dataset_reducido()
         print("\n")
         print("=" * 60)
-        print("Genera Dataset reducido para modelo")
+    #Metodo #10
+        print("10 Genera Dataset reducido para modelo")
         self.generar_dataset_reducido()
         print("\n")
         print("=" * 60)
         print("Descripcion del nuevo dataset")
         print(self.__DF_reducido.info())
-        print("Generando grafico Servicio Internet con respecto a Churn")
+    # Metodo #11
+        print("#11 Grafico correlaciones")
+        self.eda_matriz_correlacion()
+        print("\n")
+        print("=" * 60)
+    #Metodo #12
+        print("12 Generando grafico Servicio Internet con respecto a Churn")
         self.graficar_boxplot_internet_churn()
         print("\n")
         print("=" * 60)
+    #Metodo #13
         self.graficar_boxplot_genero_cargos_churn()
-
-
-
+    #Metodo #14
+        self.graficar_distribucion_churn()
 
 # =============================================================================
 # Ejecucion de la clase por medio del main
