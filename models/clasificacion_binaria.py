@@ -1,5 +1,4 @@
 
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -70,6 +69,15 @@ class ClasificacionBinaria:
         # Para clasificación binaria "binary_crossentropy"
         model.compile(loss='binary_crossentropy', optimizer='adam')
 
+        """El código comentado a bajo se utiliza como prueba"""
+        # model.compile(optimizer='rmsprop',
+        #               loss='binary_crossentropy',
+        #               metrics=['accuracy'])
+
+        # optimizer = Adam(learning_rate=0.0001)
+
+
+
         early_stop = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=25) # ~** patience disminuida
 
         #Balance de pesos de las variables en el set de datos para entrenamiento
@@ -87,6 +95,7 @@ class ClasificacionBinaria:
                   y=y_train,
                   epochs=500, #~** reducido de 600
                   validation_data=(X_test, y_test), verbose=1,
+                  #batch_size=64, #~** reducido de 128 recomendado IA
                   callbacks=[early_stop],
                   class_weight=class_weights
                   )
