@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
+    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Actualizacion archivos CSV para entrenamiento">
+      <change beforePath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eda/procesador_eda.py" beforeDir="false" afterPath="$PROJECT_DIR$/eda/procesador_eda.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/01_EDA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/01_EDA.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +18,7 @@
   </component>
   <component name="Git.Settings">
     <option name="INCOMING_COMMITS_CHECK_STRATEGY" value="FETCH" />
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="eda" />
@@ -27,72 +34,74 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000151533889075" />
-      <entry key="MS500" value="1.1086808124416638" />
-      <entry key="S2" value="1.633896740081096" />
-      <entry key="S5" value="2.1249440747797124" />
-      <entry key="S10" value="2.4641600492050046" />
-      <entry key="S30" value="2.7924297567780116" />
-      <entry key="S60" value="2.8920389294014583" />
-      <entry key="M2" value="2.96265482754445" />
-      <entry key="M5" value="4.714953883302201" />
-      <entry key="M10" value="11.488749050362255" />
-      <entry key="M15" value="17.63127114957268" />
-      <entry key="M30" value="28.48014290473108" />
-      <entry key="H1" value="36.79295897948887" />
-      <entry key="H2" value="41.974642256146" />
-      <entry key="H4" value="44.873161496650525" />
-      <entry key="D1" value="47.46220216036196" />
-      <entry key="W1" value="47.92275285323834" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000000000469" />
+      <entry key="S2" value="1.0004651552724824" />
+      <entry key="S5" value="1.0464557182634693" />
+      <entry key="S10" value="1.215535886254399" />
+      <entry key="S30" value="1.5995699568955568" />
+      <entry key="S60" value="1.7743191087447805" />
+      <entry key="M2" value="1.8811041275463214" />
+      <entry key="M5" value="2.4374122234204005" />
+      <entry key="M10" value="7.108288159359773" />
+      <entry key="M15" value="14.121672518594787" />
+      <entry key="M30" value="33.13387129442461" />
+      <entry key="H1" value="59.29905711600243" />
+      <entry key="H2" value="89.18040991986354" />
+      <entry key="H4" value="114.87249322724016" />
+      <entry key="D1" value="146.22750346745798" />
+      <entry key="W1" value="152.85366111459564" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="6.094468342739922E-299" />
-      <entry key="S5" value="5.175981349563631E-120" />
-      <entry key="S10" value="2.2898275760503362E-60" />
-      <entry key="S30" value="1.5607175993881363E-20" />
-      <entry key="S60" value="1.6423122140973217E-10" />
-      <entry key="M2" value="1.7748072258729646E-5" />
-      <entry key="M5" value="0.01896751362345862" />
-      <entry key="M10" value="0.19459812459059855" />
-      <entry key="M15" value="0.4230102151818456" />
-      <entry key="M30" value="0.9197037422659899" />
-      <entry key="H1" value="1.356214411138183" />
-      <entry key="H2" value="1.6469352317753938" />
-      <entry key="H4" value="1.8148995550540652" />
-      <entry key="D1" value="1.967887814725632" />
-      <entry key="W1" value="1.9953806500675053" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="2.3171751318976607E-159" />
+      <entry key="S10" value="4.813706658889817E-80" />
+      <entry key="S30" value="3.6654042131947994E-27" />
+      <entry key="S60" value="6.557712071604451E-14" />
+      <entry key="M2" value="3.1813975647143173E-7" />
+      <entry key="M5" value="0.0036642895393513416" />
+      <entry key="M10" value="0.0850292525806695" />
+      <entry key="M15" value="0.24452327051808895" />
+      <entry key="M30" value="0.7483758882829409" />
+      <entry key="H1" value="1.548453137757821" />
+      <entry key="H2" value="2.5701765369445266" />
+      <entry key="H4" value="3.5070137654305227" />
+      <entry key="D1" value="4.698375718672421" />
+      <entry key="W1" value="4.955376802890246" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8010801561661057" />
-      <entry key="MS500" value="1.0571598258485972" />
-      <entry key="S2" value="1.5801617017141258" />
-      <entry key="S5" value="2.0298555543382553" />
-      <entry key="S10" value="2.3786849920749598" />
-      <entry key="S30" value="2.7497538350667656" />
-      <entry key="S60" value="2.8684043061803313" />
-      <entry key="M2" value="2.9502272279515043" />
-      <entry key="M5" value="4.727276468683184" />
-      <entry key="M10" value="11.673558408279893" />
-      <entry key="M15" value="18.04229641484788" />
-      <entry key="M30" value="29.38798430237765" />
-      <entry key="H1" value="38.140677626683" />
-      <entry key="H2" value="43.61647748475358" />
-      <entry key="H4" value="46.685265124408154" />
-      <entry key="D1" value="49.42958667335534" />
-      <entry key="W1" value="49.918060645371796" />
+      <entry key="MS100" value="0.8888426811665702" />
+      <entry key="MS500" value="0.9767085289622731" />
+      <entry key="S2" value="0.9945879940450526" />
+      <entry key="S5" value="1.0439924393843778" />
+      <entry key="S10" value="1.2141044028512915" />
+      <entry key="S30" value="1.5989417957393568" />
+      <entry key="S60" value="1.7739706813912346" />
+      <entry key="M2" value="1.880919569998619" />
+      <entry key="M5" value="2.4408537998551747" />
+      <entry key="M10" value="7.191853085932899" />
+      <entry key="M15" value="14.363512226048071" />
+      <entry key="M30" value="33.87817928980594" />
+      <entry key="H1" value="60.8429098382288" />
+      <entry key="H2" value="91.74630402145998" />
+      <entry key="H4" value="118.37636369330428" />
+      <entry key="D1" value="150.92513094988675" />
+      <entry key="W1" value="157.80892393737642" />
     </decayedShown>
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.download_data.executor": "Run",
     "Python.procesador_eda.executor": "Run",
+    "git-widget-placeholder": "eda",
     "git.auto.fetch.suggestion.counter": "1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="TaskManager">
@@ -126,10 +135,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
     <MESSAGE value="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
+    <MESSAGE value="Actualizacion clase EDA.&#10;Actualizacion archivos CSV para entrenamiento" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion clase EDA.&#10;Actualizacion archivos CSV para entrenamiento" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781481751581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
+    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781497721297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781475535640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
   </component>
 </project>
