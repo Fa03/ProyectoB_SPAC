@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos">
-      <change beforePath="$PROJECT_DIR$/eda/procesador_eda.py" beforeDir="false" afterPath="$PROJECT_DIR$/eda/procesador_eda.py" afterDir="false" />
-    </list>
+    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,12 +19,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Fa03/ProyectoB_SPAC.git",
-    "accountId": "f9e0d941-2fdf-4965-b758-2cde3d41de65"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Fa03/ProyectoB_SPAC.git&quot;,
+    &quot;accountId&quot;: &quot;f9e0d941-2fdf-4965-b758-2cde3d41de65&quot;
   }
-}]]></component>
+}</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0000151533889075" />
@@ -90,7 +88,6 @@
   "keyToString": {
     "Python.download_data.executor": "Run",
     "Python.procesador_eda.executor": "Run",
-    "git-widget-placeholder": "eda",
     "git.auto.fetch.suggestion.counter": "1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -128,10 +125,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion clase EDA.&#10;Se vuelva a generar el archivo CSV limpio para entrenar los modelos" />
+    <MESSAGE value="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion clase EDA.&#10;Creacion de graficos EDA." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781476580045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
+    <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781481751581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781475535640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
   </component>
 </project>
