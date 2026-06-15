@@ -1,0 +1,145 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"ALL\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d2d5d9ac-e510-49ff-8f26-04937e5091b4\" name=\"Changes\" comment=\"feature:ya guarda los.csv en la carpeta de &quot;data/processed&quot;\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/vcs.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/data/processed/test_binario.csv\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/data/processed/test_binario.csv\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/data/processed/train_binario.csv\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/data/processed/train_binario.csv\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/models/clasificacion_binaria.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/models/clasificacion_binaria.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/models/modelo_TELCO.keras\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/models/modelo_TELCO.keras\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"EmbeddingIndexingInfo\">\r\n    <option name=\"cachedIndexableFilesCount\" value=\"33\" />\r\n    <option name=\"fileBasedEmbeddingIndicesEnabled\" value=\"true\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Fa03&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\r\n  \"selectedUrlAndAccountId\": {\r\n    \"url\": \"https://github.com/Fa03/ProyectoB_SPAC.git\",\r\n    \"accountId\": \"960b1b59-51f6-4b5c-b849-43e9bb452c36\"\r\n  }\r\n}]]></component>\r\n  <component name=\"McpProjectServerCommands\">\r\n    <commands />\r\n    <urls />\r\n  </component>\r\n  <component name=\"NextEditCompletionFeaturesState\">\r\n    <decayedCancelled>\r\n      <entry key=\"MS100\" value=\"1.0000000000110283\" />\r\n      <entry key=\"MS500\" value=\"1.006434304822403\" />\r\n      <entry key=\"S2\" value=\"1.2832209713239497\" />\r\n      <entry key=\"S5\" value=\"1.6037402957432483\" />\r\n      <entry key=\"S10\" value=\"1.7770072687840495\" />\r\n      <entry key=\"S30\" value=\"1.9193376095202872\" />\r\n      <entry key=\"S60\" value=\"1.9588209480314316\" />\r\n      <entry key=\"M2\" value=\"1.979215619296367\" />\r\n      <entry key=\"M5\" value=\"2.0219532704733636\" />\r\n      <entry key=\"M10\" value=\"2.749214864573217\" />\r\n      <entry key=\"M15\" value=\"4.448198082993391\" />\r\n      <entry key=\"M30\" value=\"11.397418213391129\" />\r\n      <entry key=\"H1\" value=\"24.195545734280216\" />\r\n      <entry key=\"H2\" value=\"39.07530632557465\" />\r\n      <entry key=\"H4\" value=\"51.07401470300273\" />\r\n      <entry key=\"D1\" value=\"64.75120641718519\" />\r\n      <entry key=\"W1\" value=\"67.52406173668261\" />\r\n    </decayedCancelled>\r\n    <decayedSelected>\r\n      <entry key=\"MS100\" value=\"0.0\" />\r\n      <entry key=\"MS500\" value=\"0.0\" />\r\n      <entry key=\"S2\" value=\"0.0\" />\r\n      <entry key=\"S5\" value=\"0.0\" />\r\n      <entry key=\"S10\" value=\"0.0\" />\r\n      <entry key=\"S30\" value=\"0.0\" />\r\n      <entry key=\"S60\" value=\"0.0\" />\r\n      <entry key=\"M2\" value=\"0.0\" />\r\n      <entry key=\"M5\" value=\"0.0\" />\r\n      <entry key=\"M10\" value=\"0.0\" />\r\n      <entry key=\"M15\" value=\"0.0\" />\r\n      <entry key=\"M30\" value=\"0.0\" />\r\n      <entry key=\"H1\" value=\"0.0\" />\r\n      <entry key=\"H2\" value=\"0.0\" />\r\n      <entry key=\"H4\" value=\"0.0\" />\r\n      <entry key=\"D1\" value=\"0.0\" />\r\n      <entry key=\"W1\" value=\"0.0\" />\r\n    </decayedSelected>\r\n    <decayedShown>\r\n      <entry key=\"MS100\" value=\"0.9012504626207695\" />\r\n      <entry key=\"MS500\" value=\"0.9857221863308497\" />\r\n      <entry key=\"S2\" value=\"1.2765673236606583\" />\r\n      <entry key=\"S5\" value=\"1.600408876496444\" />\r\n      <entry key=\"S10\" value=\"1.7751606375735276\" />\r\n      <entry key=\"S30\" value=\"1.9186725330496235\" />\r\n      <entry key=\"S60\" value=\"1.9584815396283644\" />\r\n      <entry key=\"M2\" value=\"1.9790439733845575\" />\r\n      <entry key=\"M5\" value=\"2.0218404209040357\" />\r\n      <entry key=\"M10\" value=\"2.748981423500893\" />\r\n      <entry key=\"M15\" value=\"4.447890173376456\" />\r\n      <entry key=\"M30\" value=\"11.397080900646277\" />\r\n      <entry key=\"H1\" value=\"24.195266543705923\" />\r\n      <entry key=\"H2\" value=\"39.07511180609189\" />\r\n      <entry key=\"H4\" value=\"51.07389605791124\" />\r\n      <entry key=\"D1\" value=\"64.75118259288304\" />\r\n      <entry key=\"W1\" value=\"67.5240582155255\" />\r\n    </decayedShown>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4,\r\n  &quot;fromUser&quot;: false\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3F6t1jcqi38CAYf4pkEbzkJOqY6\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\r\n    \"Python.clasificacion_binaria.executor\": \"Run\",\r\n    \"Python.download_data.executor\": \"Run\",\r\n    \"Python.procesador_eda.executor\": \"Run\",\r\n    \"RunOnceActivity.MCP Project settings loaded\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"RunOnceActivity.typescript.service.memoryLimit.init\": \"true\",\r\n    \"codeWithMe.voiceChat.enabledByDefault\": \"false\",\r\n    \"com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1\": \"true\",\r\n    \"git-widget-placeholder\": \"DetalladoClassBi\",\r\n    \"git.auto.fetch.suggestion.counter\": \"1\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"junie.onboarding.icon.badge.shown\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/fab_t/Documents/Codigo/IA_Aplicada/ProyectoB_SPAC\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable\",\r\n    \"to.speed.mode.migration.done\": \"true\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.24374.152\" />\r\n        <option value=\"bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d2d5d9ac-e510-49ff-8f26-04937e5091b4\" name=\"Changes\" comment=\"\" />\r\n      <created>1781407134312</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1781407134312</updated>\r\n      <workItem from=\"1781407135519\" duration=\"147000\" />\r\n      <workItem from=\"1781408758934\" duration=\"87000\" />\r\n      <workItem from=\"1781408880742\" duration=\"22000\" />\r\n      <workItem from=\"1781408945267\" duration=\"1944000\" />\r\n      <workItem from=\"1781469492783\" duration=\"10146000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$prediccion_nuevosDatos.coverage\" NAME=\"prediccion_nuevosDatos Coverage Results\" MODIFIED=\"1781461682573\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/models\" />\r\n    <SUITE FILE_PATH=\"coverage/ProyectoB_SPAC$download_data.coverage\" NAME=\"download_data Coverage Results\" MODIFIED=\"1781409571937\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/data/raw\" />\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$clasificacion_binaria.coverage\" NAME=\"clasificacion_binaria Coverage Results\" MODIFIED=\"1781479796112\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/models\" />\r\n    <SUITE FILE_PATH=\"coverage/ProyectoB_SPAC$procesador_eda.coverage\" NAME=\"procesador_eda Coverage Results\" MODIFIED=\"1781410174612\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/eda\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8dfcc75f1d3880a1fe7c7d39e9b24be1e2367504)
++++ b/.idea/workspace.xml	(date 1781480116016)
+@@ -4,15 +4,7 @@
+     <option name="autoReloadType" value="ALL" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="feature:ya guarda los.csv en la carpeta de &quot;data/processed&quot;">
+-      <change beforePath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProyectoB_SPAC.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/data/processed/test_binario.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/test_binario.csv" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/data/processed/train_binario.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/train_binario.csv" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/models/clasificacion_binaria.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/clasificacion_binaria.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/models/modelo_TELCO.keras" beforeDir="false" afterPath="$PROJECT_DIR$/models/modelo_TELCO.keras" afterDir="false" />
+-    </list>
++    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="fix:modelo binario da precision de 0.81 después de ajustes, con datos no &quot;oficiales&quot;" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -48,23 +40,23 @@
+   </component>
+   <component name="NextEditCompletionFeaturesState">
+     <decayedCancelled>
+-      <entry key="MS100" value="1.0000000000110283" />
+-      <entry key="MS500" value="1.006434304822403" />
+-      <entry key="S2" value="1.2832209713239497" />
+-      <entry key="S5" value="1.6037402957432483" />
+-      <entry key="S10" value="1.7770072687840495" />
+-      <entry key="S30" value="1.9193376095202872" />
+-      <entry key="S60" value="1.9588209480314316" />
+-      <entry key="M2" value="1.979215619296367" />
+-      <entry key="M5" value="2.0219532704733636" />
+-      <entry key="M10" value="2.749214864573217" />
+-      <entry key="M15" value="4.448198082993391" />
+-      <entry key="M30" value="11.397418213391129" />
+-      <entry key="H1" value="24.195545734280216" />
+-      <entry key="H2" value="39.07530632557465" />
+-      <entry key="H4" value="51.07401470300273" />
+-      <entry key="D1" value="64.75120641718519" />
+-      <entry key="W1" value="67.52406173668261" />
++      <entry key="MS100" value="1.0029196274432393" />
++      <entry key="MS500" value="1.3199855370877356" />
++      <entry key="S2" value="2.919719039272792" />
++      <entry key="S5" value="6.765217407723274" />
++      <entry key="S10" value="11.585561170612106" />
++      <entry key="S30" value="20.631835974930127" />
++      <entry key="S60" value="24.999304124452294" />
++      <entry key="M2" value="27.882524581733108" />
++      <entry key="M5" value="30.32465132839777" />
++      <entry key="M10" value="31.91292590510885" />
++      <entry key="M15" value="33.645045246882944" />
++      <entry key="M30" value="40.29734804510771" />
++      <entry key="H1" value="53.00921601693723" />
++      <entry key="H2" value="68.30859036205648" />
++      <entry key="H4" value="80.91594902280518" />
++      <entry key="D1" value="95.50559380208952" />
++      <entry key="W1" value="98.48744436022379" />
+     </decayedCancelled>
+     <decayedSelected>
+       <entry key="MS100" value="0.0" />
+@@ -86,23 +78,23 @@
+       <entry key="W1" value="0.0" />
+     </decayedSelected>
+     <decayedShown>
+-      <entry key="MS100" value="0.9012504626207695" />
+-      <entry key="MS500" value="0.9857221863308497" />
+-      <entry key="S2" value="1.2765673236606583" />
+-      <entry key="S5" value="1.600408876496444" />
+-      <entry key="S10" value="1.7751606375735276" />
+-      <entry key="S30" value="1.9186725330496235" />
+-      <entry key="S60" value="1.9584815396283644" />
+-      <entry key="M2" value="1.9790439733845575" />
+-      <entry key="M5" value="2.0218404209040357" />
+-      <entry key="M10" value="2.748981423500893" />
+-      <entry key="M15" value="4.447890173376456" />
+-      <entry key="M30" value="11.397080900646277" />
+-      <entry key="H1" value="24.195266543705923" />
+-      <entry key="H2" value="39.07511180609189" />
+-      <entry key="H4" value="51.07389605791124" />
+-      <entry key="D1" value="64.75118259288304" />
+-      <entry key="W1" value="67.5240582155255" />
++      <entry key="MS100" value="0.9620648131733913" />
++      <entry key="MS500" value="1.3090644079640517" />
++      <entry key="S2" value="2.913955222038048" />
++      <entry key="S5" value="6.760105821377199" />
++      <entry key="S10" value="11.581248773937231" />
++      <entry key="S30" value="20.629265507800124" />
++      <entry key="S60" value="24.997738559756844" />
++      <entry key="M2" value="27.881642011297387" />
++      <entry key="M5" value="30.324239985893144" />
++      <entry key="M10" value="31.912598638590868" />
++      <entry key="M15" value="33.64470175403181" />
++      <entry key="M30" value="40.29700137822488" />
++      <entry key="H1" value="53.00892828620647" />
++      <entry key="H2" value="68.30838810666468" />
++      <entry key="H4" value="80.91582487263425" />
++      <entry key="D1" value="95.50556871076353" />
++      <entry key="W1" value="98.48744064725717" />
+     </decayedShown>
+   </component>
+   <component name="ProjectColorInfo">{
+@@ -160,8 +152,17 @@
+       <workItem from="1781408758934" duration="87000" />
+       <workItem from="1781408880742" duration="22000" />
+       <workItem from="1781408945267" duration="1944000" />
+-      <workItem from="1781469492783" duration="10146000" />
++      <workItem from="1781469492783" duration="10461000" />
++    </task>
++    <task id="LOCAL-00001" summary="fix:modelo binario da precision de 0.81 después de ajustes, con datos no &quot;oficiales&quot;">
++      <option name="closed" value="true" />
++      <created>1781480093177</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1781480093177</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -178,10 +179,14 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="fix:modelo binario da precision de 0.81 después de ajustes, con datos no &quot;oficiales&quot;" />
++    <option name="LAST_COMMIT_MESSAGE" value="fix:modelo binario da precision de 0.81 después de ajustes, con datos no &quot;oficiales&quot;" />
++  </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/git_Clones$prediccion_nuevosDatos.coverage" NAME="prediccion_nuevosDatos Coverage Results" MODIFIED="1781461682573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781409571937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
+-    <SUITE FILE_PATH="coverage/git_Clones$clasificacion_binaria.coverage" NAME="clasificacion_binaria Coverage Results" MODIFIED="1781479796112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
++    <SUITE FILE_PATH="coverage/git_Clones$clasificacion_binaria.coverage" NAME="clasificacion_binaria Coverage Results" MODIFIED="1781479935888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781410174612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
+   </component>
+ </project>
+\ No newline at end of file
