@@ -28,7 +28,7 @@ riesgo clasificandolos por nivel de urgencia para implementar estrategias de ret
 
 ## 📊 Dataset
 - **Fuente**: Telco Customer Churn KAGGLE
-- **URL**: https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data](https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+- **URL**: https://www.kaggle.com/datasets/blastchar/telco-customer-churn
 - **Registros**: 7,043 clientes
 - **Variables**: 21 (demográficas, servicios contratados, información de cuenta)
 - **Variables principales**: antigüedad del cliente, tipo de contrato, método de pago, cargos
@@ -43,7 +43,7 @@ mensuales, servicios adicionales (internet, streaming, seguridad),
 ### Pasos de Instalación
 ```bash
 # 1. Clonar o descargar el repositorio
-cd ProyectoA_RiesgoCrediticio
+cd ProyectoB_SPAC
 
 # 2. Crear entorno virtual (recomendado)
 python -m venv venv
@@ -64,10 +64,9 @@ jupyter notebook notebooks/
 ```
 Ejecutar en orden:
 1. `01_EDA_CreditRisk.ipynb` - Análisis exploratorio
-2. `02_Preprocesamiento.ipynb` - Limpieza y preparación
-3. `03_ANN_BinaryClass.ipynb` - Modelo binario
-4. `04_ANN_Regression.ipynb` - Modelo regresión
-5. `05_Comparacion_Modelos.ipynb` - Evaluación
+2. `02_ANN_BinaryClass.ipynb` - Modelo binario
+3. `03_ANN_Regression.ipynb` - Modelo regresión
+4. `04_Comparacion_Modelos.ipynb` - Evaluación
 
 ### Entrenar Modelos
 ```bash
@@ -144,32 +143,35 @@ ProyectoA_RiesgoCrediticio/
 
 ### Modelo 1: Clasificación Binaria
 - **Objetivo**: Predecir aprobación de crédito (Bueno/Malo)
-- **Arquitectura**: [Describir arquitectura implementada]
+- **Arquitectura**: Red neuronal artificial (ANN) tipo MLP 
+(Multilayer Perceptron) para clasificación binaria
 - **Métricas**: 
-  - Accuracy: [completar]
-  - Precision: [completar]
-  - Recall: [completar]
-  - F1-Score: [completar]
+  - Accuracy: 0.72
+  - Precision: 0 = 0.89 y 1 = 0.49
+  - Recall: 0 = 0.70 y 1 = 0.76
+  - F1-Score: 0 = 0.79 y 1 = 0.59
 
 ### Modelo 2: Clasificación Regresión
-- **Objetivo**: Clasificar nivel de riesgo (Bajo/Medio/Alto/Crítico)
-- **Arquitectura**: [Describir arquitectura implementada]
+- **Objetivo**: Clasificar nivel de riesgo (Bajo/Medio/Alto)
+- **Arquitectura**: Para crear el Modelo se utilizó **ANN Regresión** secuencial,
+la cual está compuesta por 4 capas ocultas con la activación **Relu** y se agrego
+una capa de salida, por último utilizando la función de pérdida de **MSE** y **ADAM**.
 - **Métricas**: 
-  - Accuracy: [completar]
-  - Precision macro: [completar]
-  - Recall macro: [completar]
-  - F1-Score macro: [completar]
+  - Accuracy: 0.77
+  - Precision macro: 0 = 0.81 y 1 = 0.60
+  - Recall macro: 0 = 0.89 y 1 = 0.45
+  - F1-Score macro: 0 = 0.85 y 1 = 0.52
 
 ## 📈 Resultados
 
-### Comparación de Modelos
-[Insertar tabla o gráfico comparativo]
-
 ### Conclusiones
-[Describir conclusiones principales del proyecto]
+Como conclusión, A lo largo de este proyecto se exploró el uso de redes neuronales artificiales para resolver problemas tanto de predicción continua como de clasificación binaria, evidenciando su potencial en contextos reales. Los modelos implementados lograron resultados satisfactorios, permitiendo no solo comprender el comportamiento de los datos, sino también generar predicciones útiles.
+Sin embargo, el proceso también permitió identificar limitaciones, como la necesidad de un adecuado preprocesamiento de datos y la sensibilidad del modelo a la elección de parámetros. Estas dificultades resaltan la importancia de una etapa de análisis previo sólida y de la validación constante de los resultados obtenidos.
+En conclusión, el uso de ANN constituye una metodología poderosa dentro del aprendizaje automático, pero requiere un enfoque cuidadoso y estructurado para maximizar su efectividad.
 
 ### Recomendaciones
-[Sugerencias para mejora o implementación en producción]
+Como recomendación, como trabajo futuro, se sugiere explorar arquitecturas más complejas, 
+así como comparar con otros algoritmos para fortalecer la toma de decisiones.
 
 ## 🛠️ Tecnologías Utilizadas
 - **Python 3.x**
@@ -182,11 +184,10 @@ ProyectoA_RiesgoCrediticio/
 - **Uvicorn**: Servidor ASGI
 
 ## 📝 Notas de Desarrollo
-[Espacio para documentar decisiones técnicas, problemas encontrados y soluciones]
+**Problemas Encontrados**
 
-## 📧 Contacto
-Para consultas sobre este proyecto, contactar a: [email del grupo]
+- Como equipo encontramos que nuestros dataset estaba totalmente limpio, pero creando un gráfico nos dimos cuando que podiamos llegar a tener algunas fallas con los modelos, ya que, nuestra variable objetivo 'Churn' nos presentaba que los 0 = 5174 y de 1 = 1869, dandonos a entender que el modelo iba a llegar a predecir mas un 0 que un 1.
 
 ---
 **Proyecto desarrollado para el curso de Inteligencia Artificial Aplicada**  
-**Colegio Universitario de Cartago (CUC) - 2025**
+**Colegio Universitario de Cartago (CUC) - 2026**
