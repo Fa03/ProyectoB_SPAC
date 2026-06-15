@@ -51,6 +51,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         print(f"Primeros 5 registros del data set: \n{self.__DF_data.head(5)}") #Obtencion de las primeras 5 lineas del dataset
         print(f"Estadística básica del dataset:\n{self.__DF_data.describe()}") #Estadistica basica del dataset
 
+
     # -------------------------------------------------------------------------------------------------------------------#
 
     # 2. Método con el que podremos limpiar textos ya que tenemos varias variables STR
@@ -71,6 +72,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
             )  # Asegura que los datos sean de tipo string limpios.
 
         print("¡Todas las columnas categóricas han sido limpiadas con éxito!\n")
+
 
     # -------------------------------------------------------------------------------------------------------------------#
 
@@ -94,6 +96,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         else:
         # Si no hay nulos, saltamos la limpieza e informamos al usuario
             print("¡Todo está bien! El dataset no contiene registros nulos. No se requiere limpieza.")
+
 
     # -------------------------------------------------------------------------------------------------------------------#
 
@@ -132,6 +135,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         self.__DF_data['Churn'] = self.__DF_data['Churn'].map({'Yes': 1, 'No': 0})
 
         print("✅ Transformación de 'Churn' completada con éxito (Yes -> 1, No -> 0).")
+
 
     # -------------------------------------------------------------------------------------------------------------------#
     #6 Generar OneHotEncoder ya que existen varias variables que se deben de pasar de STR a int
@@ -207,7 +211,6 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
     # -------------------------------------------------------------------------------------------------------------------#
     #7 Calculo de correlaciones
     #El metodo obtener_correlaciones_fuertes me permite hacer correlaciones con respecto la variable Churn me ordena de mayor a menor.
-
     def obtener_correlaciones_fuertes(self, umbral=0.1):
         print(f"--- Calculando Correlaciones Fuertes con Churn (Ordenadas de Mayor a Menor) ---")
 
@@ -249,6 +252,7 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         print(f"Total de características con fuerte relación: {len(correlaciones_ordenadas)}\n")
 
         return correlaciones_ordenadas
+
 
     # -------------------------------------------------------------------------------------------------------------------#
     #8 Visualizar correlaciones
@@ -309,9 +313,8 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
 
     # -------------------------------------------------------------------------------------------------------------------#
-    #8 Generar dataset reducido con la variables fuertemente correlacionadas
+    #9 Generar dataset reducido con la variables fuertemente correlacionadas
     #El siguiente metodo nos permite generar 1 dataset limpio con las variables fuertemente correlacionadas y variables predefinadas para el modelo IA
-
     def generar_dataset_reducido(self, target='Churn', umbral=0.25):
         from pathlib import Path  # Nos aseguramos de tener Path disponible
         import pandas as pd
@@ -387,10 +390,140 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         print("=" * 60 + "\n")
 
         return self.__DF_reducido
-    # -------------------------------------------------------------------------------------------------------------------#
+
 
     # -------------------------------------------------------------------------------------------------------------------#
+    #10 Generar grafico con respecto al servicio de internet
+    def graficar_boxplot_internet_churn(self):
+        """
+        Genera un gráfico de barras para analizar la tasa de Churn
+        a través de las variables dummies de Servicio de Internet.
+        """
 
+        print("\n[EDA] Generando gráfico de barras para Internet Dummies vs Churn...")
+
+        try:
+            #Definimos las columnas dummies de internet y el Churn
+            dummies_internet = ['InternetService_Fiber optic', 'InternetService_DSL', 'InternetService_No']
+            col_churn = 'Churn'
+
+            #Validar que existan en el DataFrame
+            for col in dummies_internet + [col_churn]:
+                if col not in self.__DF_reducido.columns:
+                    raise KeyError(f"La columna '{col}' no se encuentra en self.__DF_reducido.")
+
+            # "Derretimos" (melt) el DataFrame para consolidar las 3 dummies en una sola columna categórica
+            # Filtramos solo las filas donde el dummy es igual a 1 (es decir, el servicio que el cliente sí tiene)
+            df_melted = self.__DF_reducido.melt(
+                id_vars=[col_churn],
+                value_vars=dummies_internet,
+                var_name='Tipo_Internet',
+                value_name='Tiene_Servicio'
+            )
+            df_filtrado = df_melted[df_melted['Tiene_Servicio'] == 1]
+
+            # Limpiamos los nombres para que la gráfica se vea más bonita (quitamos el prefijo 'InternetService_')
+            df_filtrado['Tipo_Internet'] = df_filtrado['Tipo_Internet'].str.replace('InternetService_', '')
+
+            # Configuración del estilo visual
+            sns.set_theme(style="whitegrid")
+            fig, ax = plt.subplots(figsize=(10, 6))
+
+            # Creación del gráfico de barras (Countplot)
+            # Muestra la cantidad de clientes agrupados por Tipo de Internet y separados por Churn
+            sns.countplot(
+                data=df_filtrado,
+                x='Tipo_Internet',
+                hue=col_churn,
+                palette='Set2',
+                ax=ax
+            )
+
+            # Personalización de etiquetas y títulos
+            ax.set_title('Cantidad de Clientes y Estado de Churn por Tipo de Servicio de Internet', fontsize=14, pad=15)
+            ax.set_xlabel('Servicio de Internet (Variables Dummies)', fontsize=12)
+            ax.set_ylabel('Cantidad de Clientes', fontsize=12)
+            ax.legend(title='¿Hizo Churn?', loc='upper right')
+
+            # Añadir los números encima de las barras para mejor lectura
+            for container in ax.containers:
+                ax.bar_label(container, fmt='%d', padding=3)
+
+            # Ajuste y despliegue
+            plt.tight_layout()
+            plt.show()
+
+            print("[EDA] Gráfico de barras generado con éxito desde las variables dummies.")
+
+        except KeyError as e:
+            print(f"ERROR al graficar: {e}")
+            print("Verifica los nombres exactos de tus columnas en self.__DF_reducido.")
+        except Exception as e:
+            print(f"Ocurrió un error inesperado: {e}")
+
+
+    # -------------------------------------------------------------------------------------------------------------------#
+    #11 Generar grafico
+    def graficar_boxplot_genero_cargos_churn(self):
+        """
+        Genera un diagrama de caja (Boxplot) para analizar la relación entre
+        el género (gender_Male), los Cargos Totales (TotalCharges) y el Churn.
+        """
+
+        print("\n[EDA] Generando boxplot de Género y Cargos Totales vs Churn...")
+
+        try:
+            # 1. Definimos las columnas
+            col_x = 'gender_Male'
+            col_y = 'TotalCharges'
+            col_hue = 'Churn'
+
+            # Validar que existan en el DataFrame
+            for col in [col_x, col_y, col_hue]:
+                if col not in self.__DF_reducido.columns:
+                    raise KeyError(f"La columna '{col}' no se encuentra en self.__DF_reducido.")
+
+            # 2. Copia temporal para limpiar TotalCharges sin alterar tu dataset original
+            df_temporal = self.__DF_reducido.copy()
+
+            # Convertimos TotalCharges a numérico (los espacios vacíos se transforman en NaN y se eliminan)
+            df_temporal[col_y] = pd.to_numeric(df_temporal[col_y], errors='coerce')
+            df_temporal = df_temporal.dropna(subset=[col_y])
+
+            # 3. Configuración del estilo visual
+            sns.set_theme(style="whitegrid")
+            fig, ax = plt.subplots(figsize=(10, 6))
+
+            # 4. Creación del Boxplot
+            sns.boxplot(
+                data=df_temporal,
+                x=col_x,
+                y=col_y,
+                hue=col_hue,
+                palette='Set1',  # Cambiamos a Set1 para diferenciarlo del gráfico anterior
+                ax=ax
+            )
+
+            # 5. Personalización de etiquetas y títulos
+            ax.set_title('Distribución de Cargos Totales por Género (Male) y Estado de Churn', fontsize=14, pad=15)
+            ax.set_xlabel('Género (1 = Masculino, 0 = Femenino)', fontsize=12)
+            ax.set_ylabel('Cargos Totales Acumulados ($)', fontsize=12)
+            ax.legend(title='¿Hizo Churn?', loc='upper right')
+
+            # Ajuste y despliegue
+            plt.tight_layout()
+            plt.show()
+
+            print("[EDA] Gráfico de Cargos Totales generado con éxito.")
+
+        except KeyError as e:
+            print(f"ERROR al graficar: {e}")
+            print("Verifica si el nombre de las columnas coincide en self.__DF_reducido.")
+        except Exception as e:
+            print(f"Ocurrió un error inesperado al generar la gráfica: {e}")
+
+
+    # -------------------------------------------------------------------------------------------------------------------#
     # 12. Método para realizar la limpieza general del dataset
     #El metodo ejecutar_eda nos permite ejecutar todos los metodos que se crearon anteriormente con cierto formato para interpretarlo.
     def ejecutar_eda(self):
@@ -440,7 +573,12 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
         print("=" * 60)
         print("Descripcion del nuevo dataset")
         print(self.__DF_reducido.info())
-        print("hola mundo")
+        print("Generando grafico Servicio Internet con respecto a Churn")
+        self.graficar_boxplot_internet_churn()
+        print("\n")
+        print("=" * 60)
+        self.graficar_boxplot_genero_cargos_churn()
+
 
 
 
