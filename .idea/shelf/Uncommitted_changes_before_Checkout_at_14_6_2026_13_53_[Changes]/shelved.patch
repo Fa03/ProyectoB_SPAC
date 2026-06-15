@@ -1,0 +1,177 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"ALL\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d2d5d9ac-e510-49ff-8f26-04937e5091b4\" name=\"Changes\" comment=\"fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones\">\r\n      <change afterPath=\"$PROJECT_DIR$/models/modelo_TELCO.keras\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/models/clasificacion_binaria.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/models/clasificacion_binaria.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/models/modelo_TELCO.h5\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/models/modelo_TELCO.h5\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/models/prediccion_nuevosDatos.py\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"EmbeddingIndexingInfo\">\r\n    <option name=\"cachedIndexableFilesCount\" value=\"25\" />\r\n    <option name=\"fileBasedEmbeddingIndicesEnabled\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Fa03&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\r\n  \"selectedUrlAndAccountId\": {\r\n    \"url\": \"https://github.com/Fa03/ProyectoB_SPAC.git\",\r\n    \"accountId\": \"960b1b59-51f6-4b5c-b849-43e9bb452c36\"\r\n  }\r\n}]]></component>\r\n  <component name=\"McpProjectServerCommands\">\r\n    <commands />\r\n    <urls />\r\n  </component>\r\n  <component name=\"NextEditCompletionFeaturesState\">\r\n    <decayedCancelled>\r\n      <entry key=\"MS100\" value=\"1.0000000002461062\" />\r\n      <entry key=\"MS500\" value=\"1.0120523193450324\" />\r\n      <entry key=\"S2\" value=\"1.4479755210053957\" />\r\n      <entry key=\"S5\" value=\"2.2599105047671437\" />\r\n      <entry key=\"S10\" value=\"2.992470989821602\" />\r\n      <entry key=\"S30\" value=\"4.3371528987585375\" />\r\n      <entry key=\"S60\" value=\"5.382613434743116\" />\r\n      <entry key=\"M2\" value=\"6.418430079422723\" />\r\n      <entry key=\"M5\" value=\"9.23281857763588\" />\r\n      <entry key=\"M10\" value=\"15.201484728003672\" />\r\n      <entry key=\"M15\" value=\"21.02016262934998\" />\r\n      <entry key=\"M30\" value=\"38.27313015330324\" />\r\n      <entry key=\"H1\" value=\"67.08051433431655\" />\r\n      <entry key=\"H2\" value=\"104.06429645216366\" />\r\n      <entry key=\"H4\" value=\"139.2962733016795\" />\r\n      <entry key=\"D1\" value=\"186.5790784735591\" />\r\n      <entry key=\"W1\" value=\"197.15111111277074\" />\r\n    </decayedCancelled>\r\n    <decayedSelected>\r\n      <entry key=\"MS100\" value=\"0.0\" />\r\n      <entry key=\"MS500\" value=\"0.0\" />\r\n      <entry key=\"S2\" value=\"0.0\" />\r\n      <entry key=\"S5\" value=\"7.796211811259395E-204\" />\r\n      <entry key=\"S10\" value=\"4.444033586780881E-102\" />\r\n      <entry key=\"S30\" value=\"3.352620585401064E-34\" />\r\n      <entry key=\"S60\" value=\"3.163625949795526E-17\" />\r\n      <entry key=\"M2\" value=\"9.739723335511612E-9\" />\r\n      <entry key=\"M5\" value=\"0.0012616684471677972\" />\r\n      <entry key=\"M10\" value=\"0.07935054394450582\" />\r\n      <entry key=\"M15\" value=\"0.3731641397231422\" />\r\n      <entry key=\"M30\" value=\"2.1875080469426913\" />\r\n      <entry key=\"H1\" value=\"6.1163683861253455\" />\r\n      <entry key=\"H2\" value=\"10.915175189517479\" />\r\n      <entry key=\"H4\" value=\"14.963406475398399\" />\r\n      <entry key=\"D1\" value=\"19.809568721395216\" />\r\n      <entry key=\"W1\" value=\"20.824630200648212\" />\r\n    </decayedSelected>\r\n    <decayedShown>\r\n      <entry key=\"MS100\" value=\"1.7872139845014103E-4\" />\r\n      <entry key=\"MS500\" value=\"0.17982846328472285\" />\r\n      <entry key=\"S2\" value=\"0.9405416621424453\" />\r\n      <entry key=\"S5\" value=\"1.9273846903089473\" />\r\n      <entry key=\"S10\" value=\"2.7685602798152895\" />\r\n      <entry key=\"S30\" value=\"4.212950267668142\" />\r\n      <entry key=\"S60\" value=\"5.293810513651754\" />\r\n      <entry key=\"M2\" value=\"6.358916180183779\" />\r\n      <entry key=\"M5\" value=\"9.198393277206373\" />\r\n      <entry key=\"M10\" value=\"15.253500307736472\" />\r\n      <entry key=\"M15\" value=\"21.369900006635287\" />\r\n      <entry key=\"M30\" value=\"40.44204605363369\" />\r\n      <entry key=\"H1\" value=\"73.18228477129786\" />\r\n      <entry key=\"H2\" value=\"114.96935939339589\" />\r\n      <entry key=\"H4\" value=\"154.25353150049526\" />\r\n      <entry key=\"D1\" value=\"206.38741742150862\" />\r\n      <entry key=\"W1\" value=\"217.97555969711482\" />\r\n    </decayedShown>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4,\r\n  &quot;fromUser&quot;: false\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3F6t1jcqi38CAYf4pkEbzkJOqY6\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\r\n    \"Python.clasificacion_binaria.executor\": \"Run\",\r\n    \"Python.download_data.executor\": \"Run\",\r\n    \"Python.prediccion_nuevosDatos.executor\": \"Run\",\r\n    \"Python.procesador_eda.executor\": \"Run\",\r\n    \"RunOnceActivity.MCP Project settings loaded\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"RunOnceActivity.typescript.service.memoryLimit.init\": \"true\",\r\n    \"codeWithMe.voiceChat.enabledByDefault\": \"false\",\r\n    \"com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1\": \"true\",\r\n    \"git-widget-placeholder\": \"modelo1__2\",\r\n    \"git.auto.fetch.suggestion.counter\": \"3\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"junie.onboarding.icon.badge.shown\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/fab_t/Documents/Codigo/IA_Aplicada/ProyectoB_SPAC\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable\",\r\n    \"to.speed.mode.migration.done\": \"true\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"prediccion_nuevosDatos\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"ProyectoB_SPAC\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/models\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"DEBUG_JUST_MY_CODE\" value=\"false\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"RUN_TOOL\" value=\"\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/models/prediccion_nuevosDatos.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.prediccion_nuevosDatos\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.24374.152\" />\r\n        <option value=\"bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d2d5d9ac-e510-49ff-8f26-04937e5091b4\" name=\"Changes\" comment=\"\" />\r\n      <created>1781407134312</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1781407134312</updated>\r\n      <workItem from=\"1781407135519\" duration=\"147000\" />\r\n      <workItem from=\"1781408758934\" duration=\"87000\" />\r\n      <workItem from=\"1781408880742\" duration=\"22000\" />\r\n      <workItem from=\"1781408945267\" duration=\"1944000\" />\r\n      <workItem from=\"1781448394510\" duration=\"13330000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1781460905639</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1781460905640</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1781460922194</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1781460922194</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1781460975264</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1781460975264</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$prediccion_nuevosDatos.coverage\" NAME=\"prediccion_nuevosDatos Coverage Results\" MODIFIED=\"1781461682573\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/models\" />\r\n    <SUITE FILE_PATH=\"coverage/ProyectoB_SPAC$download_data.coverage\" NAME=\"download_data Coverage Results\" MODIFIED=\"1781409571937\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/data/raw\" />\r\n    <SUITE FILE_PATH=\"coverage/git_Clones$clasificacion_binaria.coverage\" NAME=\"clasificacion_binaria Coverage Results\" MODIFIED=\"1781465342217\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/models\" />\r\n    <SUITE FILE_PATH=\"coverage/ProyectoB_SPAC$procesador_eda.coverage\" NAME=\"procesador_eda Coverage Results\" MODIFIED=\"1781410174612\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/eda\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 215e48ad60384733319442bda172b6c4a4b538d6)
++++ b/.idea/workspace.xml	(date 1781466761210)
+@@ -4,12 +4,8 @@
+     <option name="autoReloadType" value="ALL" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones">
+-      <change afterPath="$PROJECT_DIR$/models/modelo_TELCO.keras" afterDir="false" />
++    <list default="true" id="d2d5d9ac-e510-49ff-8f26-04937e5091b4" name="Changes" comment="feature:ya guarda los.csv en la carpeta de &quot;data/processed&quot;">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/models/clasificacion_binaria.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/clasificacion_binaria.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/models/modelo_TELCO.h5" beforeDir="false" afterPath="$PROJECT_DIR$/models/modelo_TELCO.h5" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/models/prediccion_nuevosDatos.py" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -53,61 +49,61 @@
+   </component>
+   <component name="NextEditCompletionFeaturesState">
+     <decayedCancelled>
+-      <entry key="MS100" value="1.0000000002461062" />
+-      <entry key="MS500" value="1.0120523193450324" />
+-      <entry key="S2" value="1.4479755210053957" />
+-      <entry key="S5" value="2.2599105047671437" />
+-      <entry key="S10" value="2.992470989821602" />
+-      <entry key="S30" value="4.3371528987585375" />
+-      <entry key="S60" value="5.382613434743116" />
+-      <entry key="M2" value="6.418430079422723" />
+-      <entry key="M5" value="9.23281857763588" />
+-      <entry key="M10" value="15.201484728003672" />
+-      <entry key="M15" value="21.02016262934998" />
+-      <entry key="M30" value="38.27313015330324" />
+-      <entry key="H1" value="67.08051433431655" />
+-      <entry key="H2" value="104.06429645216366" />
+-      <entry key="H4" value="139.2962733016795" />
+-      <entry key="D1" value="186.5790784735591" />
+-      <entry key="W1" value="197.15111111277074" />
++      <entry key="MS100" value="1.0000014157520014" />
++      <entry key="MS500" value="1.0677588029876808" />
++      <entry key="S2" value="1.7981232623089167" />
++      <entry key="S5" value="3.6194914065020947" />
++      <entry key="S10" value="6.06301699579377" />
++      <entry key="S30" value="11.093092897063531" />
++      <entry key="S60" value="14.162022743222796" />
++      <entry key="M2" value="17.327862678900612" />
++      <entry key="M5" value="22.23963603059372" />
++      <entry key="M10" value="28.885482046319357" />
++      <entry key="M15" value="34.97109048063546" />
++      <entry key="M30" value="52.518260662618104" />
++      <entry key="H1" value="81.67681385738058" />
++      <entry key="H2" value="119.20259094974067" />
++      <entry key="H4" value="155.05064127754608" />
++      <entry key="D1" value="203.3009583146917" />
++      <entry key="W1" value="214.1091251823953" />
+     </decayedCancelled>
+     <decayedSelected>
+       <entry key="MS100" value="0.0" />
+       <entry key="MS500" value="0.0" />
+       <entry key="S2" value="0.0" />
+-      <entry key="S5" value="7.796211811259395E-204" />
+-      <entry key="S10" value="4.444033586780881E-102" />
+-      <entry key="S30" value="3.352620585401064E-34" />
+-      <entry key="S60" value="3.163625949795526E-17" />
+-      <entry key="M2" value="9.739723335511612E-9" />
+-      <entry key="M5" value="0.0012616684471677972" />
+-      <entry key="M10" value="0.07935054394450582" />
+-      <entry key="M15" value="0.3731641397231422" />
+-      <entry key="M30" value="2.1875080469426913" />
+-      <entry key="H1" value="6.1163683861253455" />
+-      <entry key="H2" value="10.915175189517479" />
+-      <entry key="H4" value="14.963406475398399" />
+-      <entry key="D1" value="19.809568721395216" />
+-      <entry key="W1" value="20.824630200648212" />
++      <entry key="S5" value="6.488038276034982E-215" />
++      <entry key="S10" value="1.2820123808969931E-107" />
++      <entry key="S30" value="4.772610981845216E-36" />
++      <entry key="S60" value="3.774600070422826E-18" />
++      <entry key="M2" value="3.364259812700589E-9" />
++      <entry key="M5" value="8.24674194419546E-4" />
++      <entry key="M10" value="0.06415322444699667" />
++      <entry key="M15" value="0.323851283996455" />
++      <entry key="M30" value="2.0378514360019135" />
++      <entry key="H1" value="5.903438797185594" />
++      <entry key="H2" value="10.723496779312184" />
++      <entry key="H4" value="14.831440407269339" />
++      <entry key="D1" value="19.78034354310062" />
++      <entry key="W1" value="20.8202384652693" />
+     </decayedSelected>
+     <decayedShown>
+-      <entry key="MS100" value="1.7872139845014103E-4" />
+-      <entry key="MS500" value="0.17982846328472285" />
+-      <entry key="S2" value="0.9405416621424453" />
+-      <entry key="S5" value="1.9273846903089473" />
+-      <entry key="S10" value="2.7685602798152895" />
+-      <entry key="S30" value="4.212950267668142" />
+-      <entry key="S60" value="5.293810513651754" />
+-      <entry key="M2" value="6.358916180183779" />
+-      <entry key="M5" value="9.198393277206373" />
+-      <entry key="M10" value="15.253500307736472" />
+-      <entry key="M15" value="21.369900006635287" />
+-      <entry key="M30" value="40.44204605363369" />
+-      <entry key="H1" value="73.18228477129786" />
+-      <entry key="H2" value="114.96935939339589" />
+-      <entry key="H4" value="154.25353150049526" />
+-      <entry key="D1" value="206.38741742150862" />
+-      <entry key="W1" value="217.97555969711482" />
++      <entry key="MS100" value="0.972656334028532" />
++      <entry key="MS500" value="1.0619474469712482" />
++      <entry key="S2" value="1.7957474921845948" />
++      <entry key="S5" value="3.6174340222580894" />
++      <entry key="S10" value="6.06120275954854" />
++      <entry key="S30" value="11.090177092097994" />
++      <entry key="S60" value="14.150717134224717" />
++      <entry key="M2" value="17.306906831167606" />
++      <entry key="M5" value="22.216962851342718" />
++      <entry key="M10" value="28.9274476425687" />
++      <entry key="M15" value="35.274551717946636" />
++      <entry key="M30" value="54.538762131682134" />
++      <entry key="H1" value="87.56614794921592" />
++      <entry key="H2" value="129.9161455657486" />
++      <entry key="H4" value="169.87598388080676" />
++      <entry key="D1" value="223.08007327298984" />
++      <entry key="W1" value="234.92918198026996" />
+     </decayedShown>
+   </component>
+   <component name="ProjectColorInfo">{
+@@ -198,7 +194,7 @@
+       <workItem from="1781408758934" duration="87000" />
+       <workItem from="1781408880742" duration="22000" />
+       <workItem from="1781408945267" duration="1944000" />
+-      <workItem from="1781448394510" duration="13330000" />
++      <workItem from="1781448394510" duration="14510000" />
+     </task>
+     <task id="LOCAL-00001" summary="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones">
+       <option name="closed" value="true" />
+@@ -224,7 +220,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1781460975264</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="feature:ya guarda los.csv en la carpeta de &quot;data/processed&quot;">
++      <option name="closed" value="true" />
++      <created>1781465622517</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1781465622518</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -243,12 +247,13 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones" />
+-    <option name="LAST_COMMIT_MESSAGE" value="fix:código de clasificacion_binaria.py modificado // Inicio guardado de modelo y validaciones" />
++    <MESSAGE value="feature:ya guarda los.csv en la carpeta de &quot;data/processed&quot;" />
++    <option name="LAST_COMMIT_MESSAGE" value="feature:ya guarda los.csv en la carpeta de &quot;data/processed&quot;" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/git_Clones$prediccion_nuevosDatos.coverage" NAME="prediccion_nuevosDatos Coverage Results" MODIFIED="1781461682573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$download_data.coverage" NAME="download_data Coverage Results" MODIFIED="1781409571937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/raw" />
+-    <SUITE FILE_PATH="coverage/git_Clones$clasificacion_binaria.coverage" NAME="clasificacion_binaria Coverage Results" MODIFIED="1781465342217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
++    <SUITE FILE_PATH="coverage/git_Clones$clasificacion_binaria.coverage" NAME="clasificacion_binaria Coverage Results" MODIFIED="1781465440235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+     <SUITE FILE_PATH="coverage/ProyectoB_SPAC$procesador_eda.coverage" NAME="procesador_eda Coverage Results" MODIFIED="1781410174612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/eda" />
+   </component>
+ </project>
+\ No newline at end of file
