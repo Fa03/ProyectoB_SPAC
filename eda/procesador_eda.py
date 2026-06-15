@@ -588,16 +588,10 @@ class ProcesadorEDA:  # Creamos la clase ProcesadorEDA la cual nos ayudará a re
 
 if __name__ == "__main__":
 
-    # 1. Obtenemos la ruta absoluta de la carpeta donde está este script (src/eda)
+    # 1. Obtenemos la ruta absoluta de la carpeta donde está este script
     directorio_actual = os.path.dirname(os.path.abspath(__file__))
 
-    # 2. Construimos la ruta correctamente (¡Nota la coma al final de "raw"!)
-    ruta_real_archivo = os.path.normpath(
-        os.path.join(
-            directorio_actual,
-            "..",
-            "data", "raw", "raw",
-            "WA_Fn-UseC_-Telco-Customer-Churn.csv"
+
         )
     )
 
@@ -606,6 +600,7 @@ if __name__ == "__main__":
     # 3. Validamos si el archivo existe e iniciamos el EDA
     if os.path.exists(ruta_real_archivo):
         print("¡Archivo encontrado con éxito! Cargando datos...")
+        # Nota: Asegúrate de haber importado pandas como pd y os al inicio del script
         df_clientes = pd.read_csv(ruta_real_archivo)
 
         # Instanciamos la clase y corremos el proceso
